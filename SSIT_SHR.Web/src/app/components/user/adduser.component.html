@@ -1,0 +1,134 @@
+<div [@routerTransition]>
+     <div class="row fieldWidth">
+         <div class="col-xs-12 col-md-12 fieldWidth">
+             <div *ngIf="edited" class="alert alert-success">
+                 User inseted successfully!
+             </div>
+          </div>
+    </div>
+      <!-- <div class="row fieldWidth">
+            <div class="col-xs-12">
+                   &nbsp;
+              </div>
+        </div> -->
+                       
+     <div class="row">
+        <div class="col-lg-12">
+        <div class="card mb-3">
+            <div class="card-header">{{getTranslationItem('lbl_User_Createuser')}}</div>
+            <div class="card-block">
+                <form class="form-inline mb-3 ng-valid ng-touched ng-dirty" [formGroup]="valForm"  novalidate="" (submit)="submitForm($event, valForm.value) ">
+                    <div class="row fieldWidth">
+                             <div class="col-xs-12 col-md-4 fieldWidth">
+                                <label class="labelAlignment">{{getTranslationItem('lbl_User_FullName')}}</label>
+                            </div>
+                            <div class="col-xs-12 col-md-8 fieldWidth">
+                             <input type="text" class="form-control fieldWidth"[(ngModel)]="Fullname" name="Fullname"  formControlName="Fullname">
+                             <span class="text-danger" *ngIf="valForm.controls['Fullname'].hasError('required') && (valForm.controls['Fullname'].dirty || valForm.controls['Fullname'].touched) && display!=1">Full Name is required</span> 
+                            </div>
+                        </div>
+                    <div class="row fieldWidth">
+                            <div class="col-xs-12">
+                                &nbsp;
+                            </div>
+                        </div>    
+                    <div class="row fieldWidth">
+                             <div class="col-xs-12 col-md-4 fieldWidth">
+                                <label class="labelAlignment">{{getTranslationItem('lbl_User_UserName')}}</label>
+                            </div>
+                            <div class="col-xs-12 col-md-8 fieldWidth">
+                             <input type="text" class="form-control fieldWidth"[(ngModel)]="Username" name="Username"  formControlName="UserName">
+                             <span class="text-danger" *ngIf="valForm.controls['UserName'].hasError('required') && (valForm.controls['UserName'].dirty || valForm.controls['UserName'].touched) && display!=1">User Name is required</span> 
+                            </div>
+                        </div>
+                        <div class="row fieldWidth">
+                            <div class="col-xs-12">
+                                &nbsp;
+                            </div>
+                        </div>
+                        <div class="row fieldWidth">
+                             <div class="col-xs-12 col-md-4 fieldWidth">
+                                <label class="labelAlignment">{{getTranslationItem('lbl_User_Password')}} </label>
+                            </div>
+                            <div class="col-xs-12 col-md-8 fieldWidth">
+                             <input type="password" class="form-control fieldWidth"[(ngModel)]="Password" name="Password" formControlName="Password">
+                              <span></span>
+                            <span class="text-danger" *ngIf="valForm.controls['Password'].hasError('required') && (valForm.controls['Password'].dirty || valForm.controls['Password'].touched) && display!=1">Password is required</span> 
+                            </div>
+                        </div>
+                        <div class="row fieldWidth">
+                            <div class="col-xs-12">
+                                &nbsp;
+                            </div>
+                        </div>
+                        <div class="row fieldWidth">
+                             <div class="col-xs-12 col-md-4 fieldWidth">
+                                <label class="labelAlignment">{{getTranslationItem('lbl_User_ConfirmPassword')}}</label>
+                            </div>
+                            <div class="col-xs-12 col-md-8 fieldWidth">
+                             <input type="password" class="form-control fieldWidth" [(ngModel)]="ConfirmPassword" name="ConfirmPassword" formControlName="ConfirmPassword">
+                             <span></span>
+                             <span class="text-danger" *ngIf="valForm.controls['ConfirmPassword'].hasError('required') && (valForm.controls['ConfirmPassword'].dirty || valForm.controls['ConfirmPassword'].touched) && display!=1">Confirm Password is required</span> 
+                            <span class="text-danger" *ngIf="valForm.controls['Password'].value != valForm.controls['ConfirmPassword'].value && display!=1">Password and ConfirmPassword must be same</span> 
+                            </div>
+                        </div>
+                         <div class="row fieldWidth">
+                            <div class="col-xs-12">
+                                &nbsp;
+                            </div>
+                        </div>
+                        <div class="row fieldWidth">
+                             <div class="col-xs-12 col-md-4 fieldWidth">
+                                <label class="labelAlignment">{{getTranslationItem('lbl_User_Email')}}</label>
+                            </div>
+                            <div class="col-xs-12 col-md-8 fieldWidth">
+                             <input type="email" class="form-control fieldWidth"[(ngModel)]="Email" name="Email"  formControlName="Email" >
+                             <span></span>
+                             <span class="text-danger" *ngIf="valForm.controls['Email'].hasError('required') && (valForm.controls['Email'].dirty || valForm.controls['Email'].touched) && display!=1">
+                                Email is required.
+                            </span> 
+                            
+                            </div>
+                        </div>
+                         <div class="row fieldWidth">
+                            <div class="col-xs-12">
+                                &nbsp;
+                            </div>
+                        </div>
+                        <div class="row fieldWidth">
+                             <div class="col-xs-12 col-md-4 fieldWidth">
+                                <label class="labelAlignment">{{getTranslationItem('lbl_User_Language')}}</label>
+                            </div>
+                            <div class="col-xs-12 col-md-8 fieldWidth">
+                                <select  name="select" class="form-control fieldWidth"[(ngModel)]="selectLanguage" formControlName="Language">
+                                   <option value="">{{getTranslationItem('lbl_User_SelectLanguage')}}</option>
+                                    <option *ngFor="let item of selectOption" 
+                                   [selected]="item.value==0" 
+                                   [disabled]="item.value==0">{{item.Text}}</option>
+                                </select>
+                                 <span></span>
+                            <span class="text-danger" *ngIf="valForm.controls['Language'].hasError('required') && (valForm.controls['Language'].dirty || valForm.controls['Language'].touched) && display!=1">Language is required</span> 
+                            </div>
+                        </div>
+                      
+                        <div class="row fieldWidth">
+                            <div class="col-xs-12">
+                                &nbsp;
+                            </div>
+                        </div>
+
+                         <div class="row fieldWidth">
+                            <div class="col-md-4 fieldWidth"></div>
+                            <div class="col-md-6 fieldWidth">
+                                
+                                <button type="submit" class="btn btn-secondary"(click)="addUser()">{{getTranslationItem('lbl_btn_Save')}} </button>
+                                <button type="reset" class="btn btn-secondary" (click)="cancelUser()">{{getTranslationItem('lbl_btn_Cancel')}} </button>
+                            </div>
+                          
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

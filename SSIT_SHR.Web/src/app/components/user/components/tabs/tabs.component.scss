@@ -1,0 +1,208 @@
+
+    body {
+        margin: 0px;
+        font-family: Arial;
+    }
+
+    .fb-profile-block {
+        margin: auto;
+        position: relative;
+        width: 100%;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    .fb-profile-block-thumb {
+        display: block;
+        height: 140px;
+        overflow: hidden;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .fb-profile-block-menu {
+        border: 1px solid #d3d6db;
+    }
+
+    .profile-img a {
+        bottom: 15px;
+        box-shadow: none;
+        display: block;
+        left: 15px;
+        padding: 1px;
+        position: absolute;
+        height: 160px;
+        width: 160px;
+        background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
+        z-index: 9;
+    }
+
+    .profile-img img {
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.07);
+        height: 158px;
+        padding: 5px;
+        width: 158px;
+    }
+
+    .profile-name {
+        bottom: 60px;
+        left: 205px;
+        position: absolute;
+    }
+
+    .profile-name h2 {
+        color: black;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 30px;
+        max-width: 303px;
+        position: relative;
+        text-transform: uppercase;
+    }
+
+    .fb-profile-block-menu {
+        height: 44px;
+        position: relative;
+    }
+
+    .main-container .tab-content {
+        left: 0;
+        position: absolute;
+        border: 1px solid #d3d6db;
+        width: 100%;
+        padding: 20px;
+        border-top: none;
+    }
+
+    .block-menu {
+        clear: right;
+        padding-left: 205px;
+    }
+
+    .block-menu ul {
+        margin: 0;
+        padding: 0;
+        height: 44px;
+    }
+
+    .block-menu ul li {
+        display: inline-block;
+    }
+
+    .block-menu ul li a {
+        border-right: 1px solid #e9eaed;
+        float: left;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+        height: 42px;
+        line-height: 3.0;
+        padding: 0 17px;
+        position: relative;
+        vertical-align: middle;
+        white-space: nowrap;
+        color: #365899;
+        text-transform: capitalize;
+    }
+
+    .block-menu ul li:first-child a {
+        border-left: 1px solid #e9eaed;
+    }
+
+    .activity {
+        float: right;
+    }
+
+    .actions {
+        bottom: 82px;
+        padding: 0;
+        position: absolute;
+        right: 15px;
+    }
+
+    .options a button {
+        cursor: pointer;
+    }
+
+    .edit_profile,
+    .activity_log {
+        border: 1px solid;
+        border-radius: 2px;
+        font-size: 12px;
+        line-height: 26px;
+        padding: 0 10px;
+        font-weight: bold;
+        position: relative;
+    }
+
+    .notification {
+        background-color: #fa3e3e;
+        border-radius: 2px;
+        color: #fff;
+        margin-left: 5PX;
+        padding: 1px 3px;
+    }
+
+    .grey-pencil {
+        color: #90949c;
+        font-size: 14PX;
+        margin-right: 5PX;
+    }
+
+    .current a {
+        color: #4b4f56;
+    }
+
+    .tab-content {
+        background: #fff;
+        width: 100%;
+        float: left;
+        position: absolute;
+        left: 0;
+        border: 1px solid #000;
+        padding: 15px;
+    }
+
+    .tab-content.current {
+        display: inherit;
+    }
+
+    ul#triple {
+        overflow: hidden;
+    }
+
+    #triple li {
+        width: 33.333%;
+        line-height: 2.5em;
+        float: left;
+        display: inline;
+    }
+
+    .tab-content.current[_ngcontent-c4] {
+        display: inherit;
+        float: left;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+.labelspace{
+    margin-left: 8px;
+}
+.labelmodule2{
+    width: 22%;
+}
+.labelmodule3{
+    width: 29%;
+}
+.fieldWidth{
+    width: 100%;
+}
+// .checkbox label input[type="checkbox"]:disabled + .cr,
+// .radio label input[type="radio"]:disabled + .cr {
+//     opacity: .5;
+// }

@@ -1,0 +1,29 @@
+<div class="login-page" [@routerTransition] style="background-image:url('../assets/images/login_background.jpg'); background-repeat: no-repeat;background-size: cover; ">
+    <div class="row">
+        <div class="col-md-4 push-md-4">
+            <img src="assets/images/SSIT_Main_Logo.png" class="user-avatar logoimage"/>
+            <!-- <h1>SSIT_HRMS</h1> -->
+            <form role="form" [formGroup]="valForm"  novalidate=""  (keydown.enter)="submitForm($event,valForm.value)">
+                <div class="form-content">
+                      <div class="form-group">
+                        <input type="text"  class="form-control input-underline input-lg" id="" placeholder="Company Name" name="ClientCode" [(ngModel)]="model.ClientCode"  formControlName="ClientCode"/>
+                        <span class="text-danger" *ngIf="valForm.controls['ClientCode'].hasError('required') && (valForm.controls['ClientCode'].dirty || valForm.controls['ClientCode'].touched)">This field is required</span> 
+                    </div>
+                    <div class="form-group">
+                        <input type="text"  class="form-control input-underline input-lg" id="" placeholder="UserName" name="UserName" [(ngModel)]="model.UserName" formControlName="UserName" />
+                   <span class="text-danger" *ngIf="valForm.controls['UserName'].hasError('required') && (valForm.controls['UserName'].dirty || valForm.controls['UserName'].touched)">This field is required</span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="password"  name="password" formControlName="password" [(ngModel)]="model.password">
+                     <span class="text-danger" *ngIf="valForm.controls['password'].hasError('required') && (valForm.controls['password'].dirty || valForm.controls['password'].touched)">This field is required</span>
+                    </div>
+                    <div *ngIf="edited" class="alert alert-danger">
+                        Invalid Credentials
+                    </div>
+                </div>
+                <a class="btn rounded-btn" [routerLink]="['/dashboard']" (click)="onLoggedin()"> Log in </a>  
+            </form>
+        </div>
+    </div>
+</div>

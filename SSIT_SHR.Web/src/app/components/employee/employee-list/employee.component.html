@@ -1,0 +1,273 @@
+<div [@routerTransition]>
+
+</div>
+
+<style>
+    .rtl .employee-list ul li .emp-img {
+        left: auto !important;
+        right: 0px;
+    }
+
+    .rtl .details {
+        margin-left: 0px;
+        margin-right: 122px;
+    }
+
+    .rtl .icons {
+        left: 0px;
+    }
+
+    .employee-list ul li {
+        position: relative;
+        list-style: none;
+        width: 377px;
+        min-height: 92px;
+        float: left;
+        margin-bottom: 15px;
+        border: 2px solid #000;
+        margin-right: 10px;
+    }
+    /*.employee-list ul li:nth-child(odd) {
+        margin-right: 15px;
+    }*/
+
+    .employee-list ul li .emp-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .employee-list ul {
+        padding-left: 0px;
+        margin-bottom: 0px;
+        /*width: 63%;
+        margin: auto;*/
+    }
+
+    .employee-list ul li span img {
+        width: 88px;
+        height: 88px;
+    }
+
+    .details {
+        margin-left: 83px;
+        min-height: 92px;
+        padding: 2px 10px;
+        line-height: 20px;
+        background-color: #d3d3d3;
+    }
+
+    .details:hover {
+        background-color: #90EE90;
+        cursor: pointer;
+    }
+
+    .employe-name {
+        color: #00008b;
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .details p {
+        margin-bottom: 0px;
+    }
+
+    .details2 p {
+        margin-bottom: 0px;
+    }
+
+    .details2 {
+        margin-right: 122px;
+        text-align: right;
+        padding: 10px;
+        background-color: #008000;
+    }
+
+    .icons {
+        position: absolute;
+        bottom: 0;
+        right: 0px;
+        top: 63px;
+    }
+
+    .icons span {
+        margin-right: 7px;
+    }
+
+    .icons2 {
+        position: absolute;
+        bottom: 0;
+        left: 0px;
+        top: 97px;
+    }
+
+    .icons2 span {
+        margin-left: 7px;
+    }
+
+    .load_more {
+        clear: both;
+        padding: 20px 70px;
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .load_more a {
+        color: #fff;
+    }
+
+    .emp-img-right {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    @media(max-width:767px) {
+        .employee-list ul li {
+            width: 340px;
+            margin-bottom: 20px;
+        }
+        .employee-list {
+            margin-top: 36px;
+        }
+    }
+
+    .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .line {
+        border-top: 2px black solid;
+        margin-top: 15px;
+        margin-bottom: 28px;
+    }
+    .searchForm{
+        padding-top: 15px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #000;
+    }
+    .searchForm .form-group{
+        margin-bottom: 15px;
+    }
+    .searchHide {
+        display: none;
+    }
+    
+</style>
+<div class="employee-list">
+    <div style="margin-bottom: 21px;"><i class="fa fa-plus searchPlus" aria-hidden="true" (click)="toggleSearch($event)"></i>&nbsp; Search</div>
+    <div class="line searchHide">
+        <div class="form-inline searchForm">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group">
+                    <label for="email" class="col-sm-5 control-label"><b>Given Name:</b></label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="email" [(ngModel)]="employee.GivenName" name="GivenName" >
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group">
+                    <label for="pwd" class="col-sm-5 control-label"><b>SurName:</b></label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="pwd" [(ngModel)]="employee.SurName" name="SurName">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group">
+                    <label for="pwd" class="col-sm-5 control-label"><b>Residency:</b></label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="pwd">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group">
+                    <label for="email" class="col-sm-5 control-label"><b>Name:</b></label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="email">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group">
+                    <label for="pwd" class="col-sm-5 control-label"><b>Id:</b></label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="pwd">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group">
+                    <label for="pwd" class="col-sm-5 control-label"><b>Passport:</b></label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="pwd">
+                    </div>
+                </div>
+            </div>
+       
+        <div class="col-md-12 col-xs-12 col-xs-12 ">
+            <div class="form-group ">
+                <button class="pull-right btn btn-primary" (click)="employeeListingData()">Search</button>
+            </div>
+        </div>
+    </div>
+    </div> 
+
+    <div *ngIf="loader" class="loader" style="display: block;
+    margin: 5% auto;"></div>
+
+    <ul>
+        <li *ngFor="let employee of finalData">
+            <a (click)="employeeDetail(employee)">
+            <span class="emp-img"><img src="https://cdn3.iconfinder.com/data/icons/rcons-user-action/32/boy-512.png" alt="Employee Image"></span>
+            <div class="details">
+               
+                    <h3 class="employe-name">{{employee.fullName}}</h3>
+        
+                <p>Iqma | Passpornr</p>
+                <p>{{employee.entityID}} | {{employee.departmentName}}</p>
+                <p>Joining Date</p>
+            </div>
+            <div class="icons">
+                <span><i class="fa fa-file" aria-hidden="true"></i></span>
+                <span><i class="fa fa-database" aria-hidden="true"></i></span>
+            </div>
+             </a>
+        </li>
+
+    </ul>
+    <div class="loading-fun">
+        <button class="load_more"> <a href="">Load More</a></button>
+    </div>
+</div>

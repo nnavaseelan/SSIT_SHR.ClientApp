@@ -1,0 +1,149 @@
+.rtl {
+    .sidebar {
+        left: auto !important;
+        right: 0 !important;
+        > ul.list-group {
+            padding: 0;
+    a.list-group-item{
+            padding: 8px 0px 8px 18px!important;
+             .fa  {
+                float: left !important;
+            }
+    }
+        }
+        
+    }
+  .block-menu .iconCheck {
+      text-align: left;
+  }  
+  .profile-img{
+    bottom: 15px;
+    box-shadow: none;
+    display: block;
+    right: 15px;
+    padding: 1px;
+    position: absolute;
+    height: 160px;
+    width: 160px;
+    background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
+    z-index: 9;
+}
+.profile-name[_ngcontent-c4] {
+    right: 205px !important;
+}
+.upload{
+    z-index: 999999;
+    position: absolute;
+    left: 25px !important;
+    top: 122px !important;
+    right: 6px !important;
+    width: 99px;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    border: none;
+}
+.main-container{
+    margin-top: 60px;
+    margin-right: 18% !important;
+    padding: 15px;
+    position: relative;
+}
+.main-container-collapse{
+    margin-top: 58px;
+    margin-right: 51px !important;
+    padding: 15px;
+    -ms-overflow-x: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    z-index: 99999;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+
+    .employee-list {
+
+     ul {
+        width: 81% !important;
+        }
+
+    }
+}
+    .sidebar-icon{
+        margin-left:23px;
+    }
+    .employee-list {
+
+     ul {
+        padding-right: 0px;
+        padding-left: 0px !important;
+        margin-bottom: 0px;
+        width: 92% !important;
+        overflow: hidden;
+        }
+        ul li {
+           .emp-img {
+                left: auto !important;
+                right: 0px;
+           } 
+           .details {
+                margin-left: 0px;
+                margin-right: 89px;
+           }
+           .icons {
+                left: 5px;
+                right: auto;
+           }
+        }
+    }
+  .user-list {
+
+     ul {
+        padding-left: 46%  !important;
+        margin-bottom: 0px;
+        width: 67% !important;
+        margin: auto;
+        }
+        ul li {
+           .emp-img {
+                left: auto !important;
+                right: 0px;
+           } 
+           .details {
+                margin-left: 0px;
+                margin-right: 122px;
+           }
+           .icons {
+                left: 5px;
+                right: auto;
+           }
+        }
+    }
+    .main-container {
+        margin-left: 0% !important;
+        margin-right: 235px;
+    }
+    * {
+        direction: rtl;
+    }
+}
+@media screen and (max-width: 992px) {
+    .rtl {
+        .navbar-brand {
+            direction: ltr;
+        }
+        .sidebar {
+            right: -235px !important;
+        }
+        .main-container {
+            margin-right: 0;
+        }
+        &.push-right {
+            .sidebar {
+                left: auto !important;
+                right: 0 !important;
+            }
+        }
+    }
+}

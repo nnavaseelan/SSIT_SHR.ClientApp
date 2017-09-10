@@ -1,0 +1,623 @@
+<style type="text/css">
+    body {
+        margin: 0px;
+        font-family: Arial;
+    }
+
+    .fb-profile-block {
+        margin: auto;
+        position: relative;
+        width: 100%;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    .fb-profile-block-thumb {
+        display: block;
+        height: 140px;
+        overflow: hidden;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .fb-profile-block-menu {
+        border: 1px solid #d3d6db;
+    }
+
+    .profile-img a {
+        bottom: 15px;
+        box-shadow: none;
+        display: block;
+        left: 15px;
+        padding: 1px;
+        position: absolute;
+        height: 160px;
+        width: 160px;
+        background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
+        z-index: 9;
+    }
+
+    .profile-img img {
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.07);
+        height: 158px;
+        padding: 5px;
+        width: 158px;
+    }
+
+    .profile-name {
+        bottom: 60px;
+        left: 205px;
+        position: absolute;
+    }
+
+    .profile-name h2 {
+        color: black;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 30px;
+        max-width: 303px;
+        position: relative;
+        text-transform: uppercase;
+    }
+
+    .fb-profile-block-menu {
+        height: 44px;
+        position: relative;
+    }
+
+    .main-container .tab-content {
+        left: 0;
+        position: absolute;
+        border: 1px solid #d3d6db;
+        width: 100%;
+        padding: 20px;
+        border-top: none;
+    }
+
+    .block-menu {
+        clear: right;
+        padding-left: 205px;
+    }
+
+    .block-menu ul {
+        margin: 0;
+        padding: 0;
+        height: 44px;
+    }
+
+    .block-menu ul li {
+        display: inline-block;
+    }
+
+    .block-menu ul li a {
+        border-right: 1px solid #e9eaed;
+        float: left;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+        height: 42px;
+        line-height: 3.0;
+        padding: 0 17px;
+        position: relative;
+        vertical-align: middle;
+        white-space: nowrap;
+        color: #365899;
+        text-transform: capitalize;
+    }
+
+    .block-menu ul li:first-child a {
+        border-left: 1px solid #e9eaed;
+    }
+
+    .activity {
+        float: right;
+    }
+
+    .actions {
+        bottom: 82px;
+        padding: 0;
+        position: absolute;
+        right: 15px;
+    }
+
+    .options a button {
+        cursor: pointer;
+    }
+
+    .edit_profile,
+    .activity_log {
+        border: 1px solid;
+        border-radius: 2px;
+        font-size: 12px;
+        line-height: 26px;
+        padding: 0 10px;
+        font-weight: bold;
+        position: relative;
+    }
+
+    .notification {
+        background-color: #fa3e3e;
+        border-radius: 2px;
+        color: #fff;
+        margin-left: 5PX;
+        padding: 1px 3px;
+    }
+
+    .grey-pencil {
+        color: #90949c;
+        font-size: 14PX;
+        margin-right: 5PX;
+    }
+
+    .current a {
+        color: #4b4f56;
+    }
+
+    .tab-content {
+        background: #fff;
+        width: 100%;
+        float: left;
+        position: absolute;
+        left: 0;
+        border: 1px solid #000;
+        padding: 15px;
+        background-color: lightgrey !important;
+    }
+
+    .tab-content.current {
+        display: inherit;
+    }
+
+    ul#triple {
+        overflow: hidden;
+    }
+
+    #triple li {
+        width: 33.333%;
+        line-height: 2.5em;
+        float: left;
+        display: inline;
+    }
+
+    .tab-content.current[_ngcontent-c4] {
+        display: inherit;
+        float: left;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    select {
+        width: 50%;
+        height: 100%;
+    }
+
+    .card-img-top {
+        max-height: 104px;
+        height: 100px;
+        max-width: 100px;
+        border-radius: 50%;
+        border: 3px #5bc0de solid;
+
+        margin: 31px auto;
+        display: table;
+    }
+
+    .card:hover {
+        border: 2px green solid;
+        cursor: pointer;
+        box-shadow: 10px 10px 5px grey;
+    }
+
+    .card-title {
+        text-align: center;
+        color: black;
+    }
+
+    .right-desktop {
+        text-align: right;
+    }
+
+    .block-menu .card {
+        margin: 0 15px;
+        width: 30.5% !important;
+    }
+
+    .upload {
+        z-index: 99;
+        position: absolute;
+        left: 16px;
+        right: 0;
+        width: 99px;
+        white-space: nowrap;
+        cursor: pointer;
+        display: inline-block;
+        border: none;
+    }
+
+    .payrollbox{width: 100%;float:left;margin-bottom:20px;}
+</style>
+<div class="fb-profile-block">
+    <div class="fb-profile-block-thumb" style="background-color: gainsboro;"><img alt="" title=""></div>
+    <div class="profile-img"><a href="javascript:void(0)"><img [src]="'data:image/jpeg;base64,'+employeeMaster.picture" alt="" title=""></a></div>
+    <input type="file" class="upload" name="profileUrl" (change)="profileEvent($event)" />
+    <div class="profile-name">
+        <button class="btn btn-primary" *ngIf="values == true" style="margin-bottom:10px;" (click)="onUpdate()"><i class="glyphicon glyphicon-pencil"></i>&nbsp; Edit</button>
+        <button class="btn btn-primary" *ngIf="values == false" style="margin-bottom:10px;" (click)="onUpdate()"><i class="glyphicon glyphicon-send"></i>&nbsp; Update</button>
+        <h2>{{employeeMaster.fullName}}</h2>
+    </div>
+
+    <div class="fb-profile-block-menu">
+        <div class="block-menu" style="background-color:#4b4f56">
+            <ul class="tabs">
+                <ngb-tabset type="pills">
+                    <ngb-tab title="Master">
+                        <ng-template ngbTabContent #tabbingData>
+                            <form name="masterTabForm" #masterTabForm="ngForm" (ngSubmit)="masterData()">
+                                <div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>EmployeeStatusID:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <select [disabled]="values" name="id" [(ngModel)]="employeeMaster.id"> 
+                                                <option value="{{employeeMaster.id}}">{{employeeMaster.id}}
+                                                </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>IDAlt:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="text" name="idAlt" #idAlt="ngModel" [(ngModel)]="employeeMaster.idAlt" [disabled]="values" value="{{employeeMaster.idAlt}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>GivenName:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="text" [disabled]="values" name="givenName" [(ngModel)]="employeeMaster.givenName" value="{{employeeMaster.givenName}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>Surname:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="text" [disabled]="values" name="surname" [(ngModel)]="employeeMaster.surname" value="{{employeeMaster.surname}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>AlternativeName:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="text" [disabled]="values" name="alternativeName" [(ngModel)]="employeeMaster.alternativeName">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>FullName:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="text" [disabled]="values" name="fullName" [(ngModel)]="employeeMaster.fullName" value="{{employeeMaster.fullName}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>ReligionID:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <!-- <input type="text" [disabled]="values" value="{{religionID}}"> -->
+                                                <select name="religionID" [disabled]="values" [(ngModel)]="employeeMaster.religionID">
+                                                <option value="{{employeeMaster.religionID}}">{{employeeMaster.religionID}}
+                                                </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>Gender:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="text" [disabled]="values" value="{{employeeMaster.gender}}" name="gender" [(ngModel)]="employeeMaster.gender">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>MaritalStatusID:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <!--<input type="text" [disabled]="values" value="{{maritalStatusID}}"> -->
+                                                <select name="maritalStatusID" [disabled]="values" [(ngModel)]="employeeMaster.maritalStatusID">
+                                                <option>{{employeeMaster.maritalStatusID}}
+                                                </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>NationalityID:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <!--  <input type="text" [disabled]="values" value="{{nationalityID}}"> -->
+                                                <select [disabled]="values" [(ngModel)]="employeeMaster.nationalityID" name="nationalityID">
+                                                <option value="{{employeeMaster.nationalityID}}">{{employeeMaster.nationalityID}}
+                                                </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>BloodTypeID:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <!-- <input type="text" [disabled]="values" value="{{bloodTypeID}}"> -->
+                                                <select [disabled]="values" [(ngModel)]="employeeMaster.bloodTypeID" name="bloodTypeID">
+                                                <option value="{{employeeMaster.bloodTypeID}}">{{employeeMaster.bloodTypeID}}
+                                                </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>Email:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="text" [disabled]="values" name="email" [(ngModel)]="employeeMaster.email" value="{{employeeMaster.email}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>MobileNumber:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="text" [disabled]="values" name="mobileNumber" [(ngModel)]="employeeMaster.mobileNumber" value="{{employeeMaster.mobileNumber}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>ForeignMobileNumber:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="text" [disabled]="values" name="foreignMobileNumber" [(ngModel)]="employeeMaster.foreignMobileNumber" value="{{employeeMaster.foreignMobileNumber}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>Landline:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="text" [disabled]="values" name="landline" value="{{employeeMaster.landline}}" [(ngModel)]="employeeMaster.landline">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>Address:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="text" [disabled]="values" name="address" [(ngModel)]="employeeMaster.address" value="{{employeeMaster.address}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>District:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="text" [disabled]="values" [(ngModel)]="employeeMaster.district" name="district" value="{{employeeMaster.district}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>City:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="text" [disabled]="values" name="city" [(ngModel)]="employeeMaster.city" value="{{employeeMaster.city}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>CountryID:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <!-- <input type="text" [disabled]="values" value="{{countryID}}"> -->
+                                                <select [disabled]="values">
+                                                <option value="{{employeeMaster.countryID}}" name="countryID" >{{employeeMaster.countryID}}
+                                                </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <label><b>BirthDate:</b></label></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <input type="date" [disabled]="values" name="birthDate" [(ngModel)]="employeeMaster.birthDate" value="{{employeeMaster.birthDate}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" [disabled]="values" class="btn btn-primary pull-right">Save</button>
+                                    <div id="snackbar">{{message}}</div>
+                                </div>
+                            </form>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab title="Employment">
+                        <ng-template ngbTabContent>
+                            <div class="row" (click)="showHide = !showHide" [hidden]="showHide">
+                                <div class="card" style="width: 20rem; padding:5px" *ngFor="let employeeContent of employment;let i=index" (click)="employmentTabData(employeeContent,i)">
+                                    <img class="card-img-top img-circle" src="https://www.w3schools.com/bootstrap/paris.jpg" alt="Card image cap">
+                                    <div class="card-block">
+                                        <h4 class="card-title">{{employeeContent.totalPayroll}}</h4>
+                                        <div class="col-md-6 col-xs-6 right-desktop"><i class="fa fa-desktop" aria-hidden="true"></i>&nbsp; {{employeeContent.startDate}}</div>
+                                        <div class="col-md-6 col-xs-6 iconCheck"><i *ngIf="employeeContent.isRunning == true" class="fa fa-check" aria-hidden="true"
+                                                style="color:green"></i><i class="fa fa-times" *ngIf="employeeContent.isRunning == false"
+                                                aria-hidden="true" style="color:red"></i></div>
+                                        <p class="card-text" style="text-align: center;"><b>Created on</b>&nbsp;&nbsp; {{employeeContent.entityName}}</p>
+                                        <p class="card-text" style="text-align: center;">{{employeeContent.departmentName}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" [hidden]="!showHide">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                         <div class="col-md-12">
+                                             <button class="btn btn-primary pull-right" (click)="showHide = !showHide">Back</button>
+                                         </div>
+                                    </div>
+                                
+                                <form name="payRollTabForm" #payRollTabForm="ngForm">
+                                    <div class="payrollbox">
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                                    <label><b>Test Data 1:</b></label></div>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="idAlt" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                                    <label><b>Test Data 2:</b></label></div>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" name="idAlt" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                                    <label><b>Test Data 3:</b></label></div>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                                    <label><b>Test Data 4:</b></label></div>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                                    <label><b>Test Data 5:</b></label></div>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                                    <label><b>Test Data 6:</b></label></div>
+                                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                                    <input type="text" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                
+                                    <table class="table table-striped" [mfData]="payRollArray" #mf="mfDataTable" [mfRowsOnPage]="5">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 25%">
+                                                <mfDefaultSorter by="amount">Amount</mfDefaultSorter>
+                                            </th>
+                                            <th style="width: 25%">
+                                                <mfDefaultSorter by="currencyCode">currency Code</mfDefaultSorter>
+                                            </th>
+                                            <th style="width: 25%">
+                                                <mfDefaultSorter by="paymentMethodID">Payment Method</mfDefaultSorter>
+                                            </th>
+                                            <th style="width: 25%">
+                                                <mfDefaultSorter by="paymentMethodID">Occurance</mfDefaultSorter>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let payData of mf.data">
+                                            <td>{{payData.amount}}</td>
+                                            <td>{{payData.currencyCode}}</td>
+                                            <td>{{payData.paymentMethodID}}</td>
+                                            <td>{{payData.paymentMethodID}}</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="4">
+                                                <mfBootstrapPaginator></mfBootstrapPaginator>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <button type="submit" class="btn btn-primary pull-right">Save</button>
+                                </form>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab title="Bank Connection">
+                        <ng-template ngbTabContent>
+                            <div *ngFor="let employeeContent of employment">
+                                <b>Department Name:</b> {{employeeContent.departmentName}}
+                                <b>Name:</b> {{employeeContent.entityName}}
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab title="insurance">
+                        <ng-template ngbTabContent>
+                            <div *ngFor="let insuranceContent of insurance">
+                                <b>Insurance Name:</b> {{insuranceContent.insuranceCompanyName}}
+                                <b>Cost:</b> {{insuranceContent.cost}}
+                                <b>Currency Code :</b> {{insuranceContent.currencyCode}}
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab title="residentialDocument">
+                        <ng-template ngbTabContent>
+                            <div *ngFor="let residentalContent of residentialDocument">
+                                <b>Expiry Date:</b> {{residentalContent.expiryDate}}
+                                <b>Issue Date:</b> {{residentalContent.issueDate}}
+                                <b>Document Identifier :</b> {{residentalContent.documentIdentifier}}
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                </ngb-tabset>
+            </ul>
+        </div>
+    </div>
+</div>

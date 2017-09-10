@@ -1,0 +1,744 @@
+
+<!-- <div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="profile-img"><a href="javascript:void(0)"><img src="http://themeboxer.com/demo/snipp/profile.jpg" alt="" title=""></a></div>
+            <div class="card-block">
+                <ngb-tabset>
+                    <ngb-tab title="User Profile">
+                        <ng-template ngbTabContent>
+                              <div class="row fieldWidth">
+                            <div class="col-xs-12">
+                                &nbsp;
+                            </div>
+                          </div>
+                           <div class="row fieldWidth">
+                               <div class="col-md-2 col-xs-12 fieldWidth">
+                                    <label class="labelAlignment">User Name  : </label>
+                                </div>
+                               <div class="col-md-10 col-xs-12 fieldWidth">
+                                   <label>{{data?.userName}}</label>
+                                </div>
+                           </div>
+                            <div class="row fieldWidth">
+                               <div class="col-md-2 col-xs-12 fieldWidth">
+                                    <label class="labelAlignment">Full Name  : </label>
+                                </div>
+                               <div class="col-md-10 col-xs-12 fieldWidth">
+                                   <label>{{data?.fullName}}</label>
+                                </div>
+                           </div>
+                            <div class="row fieldWidth">
+                               <div class="col-md-2 col-xs-12 fieldWidth">
+                                    <label class="labelAlignment">Email  : </label>
+                                </div>
+                               <div class="col-md-10 col-xs-12 fieldWidth">
+                                   <label>{{data?.email}}</label>
+                                </div>
+                           </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle>Transaction</ng-template>
+                        <ng-template ngbTabContent>
+                          <div class="row fieldWidth">
+                            <div class="col-xs-12">
+                                &nbsp;
+                            </div>
+                          </div>
+
+                          <div class="row fieldWidth">
+                            <div class="col-sm-12">
+                               <div class="checkbox" >
+                                <label class="labelmodule" *ngFor="let item of transaction ">
+                                    <input type="checkbox" [value]="item">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                       {{item}}
+                                    </label>
+                                 </div>
+                            </div> 
+                          </div>
+                        
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle>Module</ng-template>
+                        <ng-template ngbTabContent>
+                              <div class="row fieldWidth">
+                            <div class="col-xs-12">
+                                &nbsp;
+                            </div>
+                        </div>
+                           <div class="row fieldWidth">
+                            <div class="col-sm-6">
+                               <div class="checkbox">
+                                <label class="labelmodule"*ngFor="let item of moduledata">
+                                    <input type="checkbox" value="">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                      {{item}}
+                                    </label>
+                                 </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle>UserGroup</ng-template>
+                        <ng-template ngbTabContent>
+                              <div class="row fieldWidth">
+                            <div class="col-xs-12">
+                                &nbsp;
+                            </div>
+                        </div>
+                           <div class="row fieldWidth">
+                            <div class="col-sm-4">
+                               <div class="checkbox">
+                                <label >
+                                    <input type="checkbox" value="">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                               {{usergroupdata.userGroupName}}  
+                                    </label>
+                                 </div>
+                            </div>
+                            <div class="col-sm-6">
+                            </div>
+                          </div>
+                        </ng-template>
+                    </ngb-tab>
+
+                     <div class="row fieldWidth">
+                        <div class="col-xs-12">
+                                &nbsp;
+                         </div>
+                     </div>
+                 </ngb-tabset>
+                    <div class="row fieldWidth">
+                        <div class="col-xs-12">
+                                &nbsp;
+                         </div>
+                     </div>
+                 <div class="row fieldWidth">
+                            <div class="col-md-4 fieldWidth"></div>
+                            <div class="col-md-6 fieldWidth">
+                                 <button type="submit" class="btn btn-secondary">Save</button>
+                                <button type="reset" class="btn btn-secondary">Cancel</button>
+                           </div>
+                  </div>
+                        
+            </div>
+        </div>
+    </div>
+</div>  -->
+<!-- <div class="row main-card card">
+   <div class="row ebanner">
+       <div class="col-sm-2 col-xs-12">
+         <div class="profile-image">
+             <img src="../assets/images/fbprodile.png" class="eimg-responsive">
+          </div> 
+       </div>
+    <div class="col-sm-10 col-xs-12">
+       
+    </div>
+   </div>
+
+  <div class="row main-card" style="background-color: #fafafa;border:1px solid #fff;">
+                  <div class="col-md-2  col-sm-12 col-xs-12">
+                      <p>&nbsp;</p>
+                  </div>
+                 <div class="col-md-10 col-sm-12 col-xs-12">
+                   
+                    	<label for="show-menu" class="show-menu">Show Menu</label>
+	<input type="checkbox" id="show-menu" role="button">
+	<ul id="menu">
+		<li><a href="#">Home</a></li>
+		<li>
+			<a href="#">About </a>
+			
+		</li>
+		<li>
+			<a href="#">Portfolio </a>
+		
+		</li>
+		<li><a href="#">News</a></li>
+		<li><a href="#">Contact</a></li>
+	</ul>
+                         
+  </div>
+</div>
+ -->
+<!-- https://v4-alpha.getbootstrap.com/components/navbar/ -->
+<!-- <style type="text/css">
+    body {
+        margin: 0px;
+        font-family: Arial;
+    }
+
+    .fb-profile-block {
+        margin: auto;
+        position: relative;
+        width: 100%;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    .fb-profile-block-thumb {
+        display: block;
+        height: 140px;
+        overflow: hidden;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .fb-profile-block-menu {
+        border: 1px solid #d3d6db;
+    }
+
+    .profile-img a {
+        bottom: 15px;
+        box-shadow: none;
+        display: block;
+        left: 15px;
+        padding: 1px;
+        position: absolute;
+        height: 160px;
+        width: 160px;
+        background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
+        z-index: 9;
+    }
+
+    .profile-img img {
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.07);
+        height: 158px;
+        padding: 5px;
+        width: 158px;
+    }
+
+    .profile-name {
+        bottom: 60px;
+        left: 205px;
+        position: absolute;
+    }
+
+    .profile-name h2 {
+        color:black;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 30px;
+        max-width: 303px;
+        position: relative;
+        text-transform: uppercase;
+    }
+
+    .fb-profile-block-menu {
+        height: 44px;
+      position: relative;
+    }
+
+    .main-container .tab-content {
+        left: 0;
+        position: absolute;
+        border: 1px solid #d3d6db;
+        width: 100%;
+        padding: 20px;
+        border-top: none;
+    }
+
+    .block-menu {
+        clear: right;
+        padding-left: 205px;
+    }
+
+    .block-menu ul {
+        margin: 0;
+        padding: 0;
+        height: 44px;
+    }
+
+    .block-menu ul li {
+        display: inline-block;
+    }
+
+    .block-menu ul li a {
+        border-right: 1px solid #e9eaed;
+        float: left;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+        height: 42px;
+        line-height: 3.0;
+        padding: 0 17px;
+        position: relative;
+        vertical-align: middle;
+        white-space: nowrap;
+        color: #365899;
+        text-transform: capitalize;
+    }
+
+    .block-menu ul li:first-child a {
+        border-left: 1px solid #e9eaed;
+    }
+
+    .activity {
+        float: right;
+    }
+
+    .actions {
+        bottom: 82px;
+        padding: 0;
+        position: absolute;
+        right: 15px;
+    }
+
+    .options a button {
+        cursor: pointer;
+    }
+
+    .edit_profile,
+    .activity_log {
+        border: 1px solid;
+        border-radius: 2px;
+        font-size: 12px;
+        line-height: 26px;
+        padding: 0 10px;
+        font-weight: bold;
+        position: relative;
+    }
+
+    .notification {
+        background-color: #fa3e3e;
+        border-radius: 2px;
+        color: #fff;
+        margin-left: 5PX;
+        padding: 1px 3px;
+    }
+
+    .grey-pencil {
+        color: #90949c;
+        font-size: 14PX;
+        margin-right: 5PX;
+    }
+
+    .current a {
+        color: #4b4f56;
+    }
+
+    .tab-content {
+        background: #fff;
+        width: 100%;
+        float: left;
+        position: absolute;
+        left: 0;
+        border: 1px solid #a9a9a9;
+        padding: 15px;
+    }
+
+    .tab-content.current {
+        display: inherit;
+    }
+
+    ul#triple {
+        overflow: hidden;
+    }
+
+    #triple li {
+        width: 33.333%;
+        line-height: 2.5em;
+        float: left;
+        display: inline;
+    }
+
+    .tab-content.current[_ngcontent-c4] {
+        display: inherit;
+        float: left;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .tabs .tabbing {
+        border: 1px solid red;
+    }
+</style>
+<div class="fb-profile-block">
+    <div class="fb-profile-block-thumb"><img alt="" title=""></div>
+    <div class="profile-img"><a href="javascript:void(0)"><img src="http://themeboxer.com/demo/snipp/profile.jpg" alt="" title=""></a></div>
+    <div class="profile-name">
+        <button class="btn btn-primary" style="margin-bottom:10px;"><i class="glyphicon glyphicon-pencil"></i>Edit</button> 
+        <h2>{{data?.fullName}}</h2>
+    </div>
+    <div class="fb-profile-block-menu">
+        <div class="block-menu">
+            <ul class="tabs">
+                <ngb-tabset type="pills">
+                    <ngb-tab title="User Profile">
+                        <ng-template ngbTabContent #tabbingData>  
+                      <div class="row ">
+                            <div class="col-xs-12">
+                                &nbsp;
+                            </div>
+                          </div>
+                           <div class="row ">
+                               <div class="col-md-2 col-xs-12 ">
+                                    <b class="labelAlignment">User Name  : </b>
+                                </div>
+                               <div class="col-md-10 col-xs-12">
+                                   <label>{{data?.userName}}</label>
+                                </div>
+                           </div>
+                            <div class="row ">
+                               <div class="col-md-2 col-xs-12">
+                                    <b class="labelAlignment">Full Name  : </b>
+                                </div>
+                               <div class="col-md-10 col-xs-12 ">
+                                   <label>{{data?.fullName}}</label>
+                                </div>
+                           </div>
+                            <div class="row ">
+                               <div class="col-md-2 col-xs-12 ">
+                                    <b class="labelAlignment">Email  : </b>
+                                </div>
+                               <div class="col-md-10 col-xs-12 ">
+                                   <label>{{data?.email}}</label>
+                                </div>
+                           </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab title="Transaction">
+                        <ng-template ngbTabContent>
+                            <br/>
+                           <div class="checkbox" >
+                                <label class="labelmodule labelspace" *ngFor="let item of transaction ">
+                                    <input type="checkbox" [value]="item">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                   {{item}}
+                                    </label>
+                                 </div>
+                         
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab title="Module">
+                        <ng-template ngbTabContent>
+                             <br/>
+                               <div class="checkbox">
+                                <label class="labelmodule labelspace labelmodule2"*ngFor="let item of moduledata">
+                                    <input type="checkbox" [value]="item">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                  {{getTranslationItem(item)}}
+                                    </label>
+                                 </div>      
+                                
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab title="UserGroup">
+                        <ng-template ngbTabContent>
+                          <br/>
+                           <div class="checkbox" >
+                                <label class="labelmodule labelspace labelmodule2" *ngFor="let item of usergroupdata ">
+                                    <input type="checkbox" [value]="item">
+                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                       {{item}}
+                                    </label>
+                                 </div>
+                        </ng-template>
+                    </ngb-tab> -->
+                    <!-- <ngb-tab title="residentialDocument">
+                        <ng-template ngbTabContent>
+                            <div *ngFor="let residentalContent of residentialDocument">
+                                <b>Expiry Date:</b> {{residentalContent.expiryDate}}
+                                <b>Issue Date:</b> {{residentalContent.issueDate}}
+                                <b>Document Identifier :</b> {{residentalContent.documentIdentifier}}
+                            </div>
+                        </ng-template>
+                    </ngb-tab> -->
+                <!-- </ngb-tabset>
+            </ul>
+        </div>
+    </div>
+</div> -->
+<!--  -->
+ <div id="snackbar">{{message}}</div>
+<div class="fb-profile-block">
+    <div class="fb-profile-block-thumb" style="background-color: gainsboro;"><img alt="" title=""></div>
+    <div class="profile-img"><a href="javascript:void(0)"><img src="http://themeboxer.com/demo/snipp/profile.jpg" alt="" title=""></a></div>
+    <div class="profile-name">
+        <button class="btn btn-primary" *ngIf="values == true" style="margin-bottom:10px;" (click)="onUpdate()"><i class="glyphicon glyphicon-pencil"></i>&nbsp; Edit</button>
+        <button class="btn btn-primary" *ngIf="values == false" style="margin-bottom:10px;" (click)="onUpdate()"><i class="glyphicon glyphicon-send"></i>&nbsp; Update</button>
+        <h2>{{fullName}}</h2>
+    </div>
+    <div class="fb-profile-block-menu">
+        <div class="block-menu" style="background-color:#4b4f56">
+            <ul class="tabs">
+                <ngb-tabset type="pills">
+                    <ngb-tab>
+                         <ng-template ngbTabTitle>
+                              <div (click)="fetchNews(1)">{{getTranslationItem('lbl_tab_UserProfile')}}</div>
+                        </ng-template>
+                        <ng-template ngbTabContent #tabbingData>
+                            <div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>{{getTranslationItem('lbl_User_UserName')}}:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [(ngModel)]="username"  [disabled]="values" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>Full Name:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>{{getTranslationItem('lbl_User_FullName')}}:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [(ngModel)]="fullName" [disabled]="values" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>Surname:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="{{surname}}">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>{{getTranslationItem('lbl_User_Email')}}:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" [(ngModel)]="email" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>FullName:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="{{fullName}}">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>ReligionID:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="{{religionID}}">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>Gender:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="{{gender}}">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>MaritalStatusID:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="{{maritalStatusID}}">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>NationalityID:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="{{nationalityID}}">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>BloodTypeID:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="{{bloodTypeID}}">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>Email:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="{{email}}">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>MobileNumber:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="{{mobileNumber}}">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>ForeignMobileNumber:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="{{foreignMobileNumber}}">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>Landline:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>Address:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="{{address}}">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>District:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="{{district}}">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>City:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="{{city}}">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>CountryID:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="{{countryID}}">
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <label><b>BirthDate:</b></label></div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="text" [disabled]="values" value="{{birthDate}}">
+                                        </div>
+                                    </div>
+                                </div> -->
+                               
+                            </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab >
+                        <ng-template ngbTabTitle>
+                              <div (click)="fetchNews(2)">{{getTranslationItem('lbl_tab_Transaction')}}</div>
+                        </ng-template>
+                        <ng-template ngbTabContent #tabbingData>
+                           <div class="checkbox" >
+                                <label class="labelmodule labelspace labelmodule3" *ngFor="let item of transaction ">
+                                    <input type="checkbox" [checked]="item.hasItem==1" (change)="Transactiondata(item.transactionCode, $event.target.checked)"  [disabled]="values" [value]="item" >
+                                        <span class="cr"></span>
+                                   <!-- {{item.transactionCode}} -->
+                                    {{getTranslationItem2(item.transactionCode)}}
+                                    </label>
+                                    <div class="row fieldWidth">
+                                      <div class="col-xs-12">
+                                         &nbsp;
+                                      </div>
+                                         </div>
+                                 <!-- <button type="submit"  [disabled]="values" (click)="usertransactionupdate()" class="btn btn-primary pull-right">Save</button>   -->
+                                 </div>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab>
+                        <ng-template ngbTabTitle>
+                              <div (click)="fetchNews(3)">{{getTranslationItem('lbl_tab_Module')}}</div>
+                        </ng-template>
+                        <ng-template ngbTabContent #tabbingData>
+                       <div class="checkbox">
+                                <label class="labelmodule labelspace labelmodule2"*ngFor="let item of moduledata">
+                                    <input type="checkbox"  [checked]="item.hasItem==1"  (change)="Moduledata(item.moduleID, $event.target.checked)" [disabled]="values" [value]="item">
+                                        <span class="cr"></span>
+                                  {{getTranslationItem1(item.moduleID)}}
+                                    </label>
+                                <div class="row fieldWidth">
+                            <div class="col-xs-12">
+                                &nbsp;
+                            </div>
+                          </div>
+                               <!-- <button type="submit"  [disabled]="values" (click)="usermoduleupdate()" class="btn btn-primary pull-right">Save</button>           -->
+                                 </div> 
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab >
+                        <ng-template ngbTabTitle>
+                              <div (click)="fetchNews(4)">{{getTranslationItem('lbl_tab_UserGroup')}}</div>
+                        </ng-template>
+                        <ng-template ngbTabContent  #tabbingData>
+                        <div class="checkbox" >
+                                <label class="labelmodule labelspace labelmodule2" *ngFor="let item of usergroupdata ">
+                                    <input type="checkbox" [checked]="item.hasItem==1"  (change)="Usergoupdata(item.userGroupID, $event.target.checked)" [disabled]="values" [value]="item">
+                                        <span class="cr"></span>
+                                       {{item.userGroupName}}
+                                    </label>
+                                     <div class="row fieldWidth">
+                                      <div class="col-xs-12">
+                                         &nbsp;
+                                      </div>
+                                         </div>
+                                    
+                                      <!-- <button type="submit"  [disabled]="values" (click)="usergroupupdate()" class="btn btn-primary pull-right">Save</button>   -->
+                                 </div>
+                                  
+                        </ng-template>
+                                  
+                    </ngb-tab>
+                    <!-- <ngb-tab title="residentialDocument">
+                        <ng-template ngbTabContent>
+                            <div *ngFor="let residentalContent of residentialDocument">
+                                <b>Expiry Date:</b> {{residentalContent.expiryDate}}
+                                <b>Issue Date:</b> {{residentalContent.issueDate}}
+                                <b>Document Identifier :</b> {{residentalContent.documentIdentifier}}
+                            </div>
+                        </ng-template>
+                    </ngb-tab> -->
+                </ngb-tabset>
+            </ul>
+        
+        </div>
+    </div>
+</div>

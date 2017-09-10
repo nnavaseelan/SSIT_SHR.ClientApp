@@ -1,0 +1,282 @@
+<!--<div [@routerTransition]>-->
+    <!-- <div class="card mb-3">
+                <div class="card-header">UserList</div>
+                <table class="card-block table table-hover">
+                    <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>User Name</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let List of UserList;">
+                        <td>{{List.FirstName}}</td>
+                        <td>{{List.LastName}}</td>
+                        <td>{{List.UserName}}</td>
+                    </tr>
+                  
+                    </tbody>
+                </table>
+                
+            </div> -->
+    <!-- <h2 class="text-muted">Dashboard <small>Statistics Overview</small></h2>
+    <div class="row">
+        <div class="col-md-12">
+            <ngb-carousel>
+                <ng-template ngbSlide *ngFor="let slider of sliders">
+                    <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
+                    <div class="carousel-caption">
+                        <h3>{{slider.label}}</h3>
+                        <p>{{slider.text}}</p>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'card-primary'" [icon]="'fa-comments'" [count]="26" [label]="'New Comments!'" ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'card-info'" [icon]="'fa-tasks'" [count]="12" [label]="'New task!'" ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'card-success'" [icon]="'fa-shopping-cart'" [count]="124" [label]="'New Orders!'" ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'card-danger'" [icon]="'fa-support'" [count]="13" [label]="'New Tickets!'"></app-stat>
+        </div>
+    </div>
+    <hr />
+    <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
+    <hr />
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card card-default">
+                <div class="card-header">
+                    <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
+                </div>
+                
+                <app-timeline></app-timeline>
+                
+            </div>
+            
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card card-default">
+                <div class="card-header">
+                    <i class="fa fa-bell fa-fw"></i> Notifications card
+                </div>
+        
+                <app-notification></app-notification>
+        
+            </div>
+        
+
+            <app-chat></app-chat>
+        
+        </div>
+        
+    </div> -->
+<!--</div>
+
+<style>
+.employee-list ul li{
+    position:relative;
+    list-style: none;
+    width: 45%;
+    FLOAT: LEFT;
+    MARGIN-BOTTOM: 37PX;
+    border: 2px solid #000;
+}
+.employee-list ul li:nth-child(odd) {
+    margin-right: 112px;
+}
+.employee-list ul li .emp-img{
+    position:absolute;
+    top:0;
+    left:0;
+}
+.employee-list ul{
+    padding-left: 0px;
+    margin-bottom: 0px;
+    width: 90%;
+    margin: auto;
+}
+.employee-list ul li span img{
+    width:120px;
+    height: 120px;
+}
+.details{
+    margin-left:122px;
+    padding: 10px;
+    background-color: #008000;
+}
+
+.employe-name {
+    color: #00008b;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.details p{
+    margin-bottom: 0px;
+}
+.details2 p{
+    margin-bottom: 0px;
+}
+.details2{
+     margin-right:122px;
+    text-align: right;
+    padding: 10px;
+    background-color: #008000;
+}
+.icons{
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    top: 97px;
+}
+.icons span{
+    margin-right: 7px;
+}
+.icons2{
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    top: 97px;
+}
+.icons2 span{
+    margin-left: 7px;
+}
+.load_more{
+    clear: both;
+    padding: 30px 90px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+.load_more a{
+    color: #fff;
+}
+.emp-img-right{
+    position:absolute;
+    top:0;
+    right:0;
+}
+@media only screen and (max-width: 767px) {
+    .employee-list ul li {
+        width:100%;
+    }
+    .icons{
+        top:110px;
+    }
+}
+</style>
+<div class="employee-list">
+    <ul>
+        <li>
+            <span class="emp-img"><img src="https://cdn3.iconfinder.com/data/icons/rcons-user-action/32/boy-512.png" alt="Employee Image"></span>
+            <div class="details">
+                <h3 class="employe-name">Salman Bin Abdullaziz Al Saud</h3>
+                <p>Iqma | Passpornr</p>
+                <p>Entity Code | Department</p>
+                <p>Joining Date</p>
+            </div>
+            <div class="icons">
+            <span><i class="fa fa-file" aria-hidden="true"></i></span>
+            <span><i class="fa fa-database" aria-hidden="true"></i></span>
+            </div>
+        </li>
+          <li>
+            <span class="emp-img"><img src="https://cdn3.iconfinder.com/data/icons/rcons-user-action/32/boy-512.png" alt="Employee Image"></span>
+            <div class="details">
+                <h3 class="employe-name">Salman Bin Abdullaziz Al Saud</h3>
+                <p>Iqma | Passpornr</p>
+                <p>Entity Code | Department</p>
+                <p>Joining Date</p>
+            </div>
+            <div class="icons">
+            <span><i class="fa fa-file" aria-hidden="true"></i></span>
+            <span><i class="fa fa-database" aria-hidden="true"></i></span>
+            </div>
+        </li>
+          <li>
+            <span class="emp-img"><img src="https://cdn3.iconfinder.com/data/icons/rcons-user-action/32/boy-512.png" alt="Employee Image"></span>
+            <div class="details">
+                <h3 class="employe-name">Salman Bin Abdullaziz Al Saud</h3>
+                <p>Iqma | Passpornr</p>
+                <p>Entity Code | Department</p>
+                <p>Joining Date</p>
+            </div>
+            <div class="icons">
+            <span><i class="fa fa-file" aria-hidden="true"></i></span>
+            <span><i class="fa fa-database" aria-hidden="true"></i></span>
+            </div>
+        </li>
+          <li>
+            <span class="emp-img"><img src="https://cdn3.iconfinder.com/data/icons/rcons-user-action/32/boy-512.png" alt="Employee Image"></span>
+            <div class="details">
+                <h3 class="employe-name">Salman Bin Abdullaziz Al Saud</h3>
+                <p>Iqma | Passpornr</p>
+                <p>Entity Code | Department</p>
+                <p>Joining Date</p>
+            </div>
+            <div class="icons">
+            <span><i class="fa fa-file" aria-hidden="true"></i></span>
+            <span><i class="fa fa-database" aria-hidden="true"></i></span>
+            </div>
+        </li>
+          <li>
+            <span class="emp-img"><img src="https://cdn3.iconfinder.com/data/icons/rcons-user-action/32/boy-512.png" alt="Employee Image"></span>
+            <div class="details">
+                <h3 class="employe-name">Salman Bin Abdullaziz Al Saud</h3>
+                <p>Iqma | Passpornr</p>
+                <p>Entity Code | Department</p>
+                <p>Joining Date</p>
+            </div>
+            <div class="icons">
+            <span><i class="fa fa-file" aria-hidden="true"></i></span>
+            <span><i class="fa fa-database" aria-hidden="true"></i></span>
+            </div>
+        </li>
+          <li>
+            <span class="emp-img"><img src="https://cdn3.iconfinder.com/data/icons/rcons-user-action/32/boy-512.png" alt="Employee Image"></span>
+            <div class="details">
+                <h3 class="employe-name">Salman Bin Abdullaziz Al Saud</h3>
+                <p>Iqma | Passpornr</p>
+                <p>Entity Code | Department</p>
+                <p>Joining Date</p>
+            </div>
+            <div class="icons">
+            <span><i class="fa fa-file" aria-hidden="true"></i></span>
+            <span><i class="fa fa-database" aria-hidden="true"></i></span>
+            </div>
+        </li>
+    </ul>
+<div class="loading-fun">
+   <button class="load_more"> <a href="">Load More</a></button>
+</div>
+</div>-->
+
+<!--<div class="employee-list">
+    <ul>
+        <li>
+            <div class="details2">
+                <h3 class="employe-name">Salman Bin Abdullaziz Al Saud</h3>
+                <p>Iqma | Passpornr</p>
+                <p>Entity Code | Department</p>
+                <p>Joining Date</p>
+            </div>
+            <div class="icons2">
+            <span><i class="fa fa-file" aria-hidden="true"></i></span>
+            <span><i class="fa fa-database" aria-hidden="true"></i></span>
+            </div>
+              <span class="emp-img-right"><img src="https://cdn3.iconfinder.com/data/icons/rcons-user-action/32/boy-512.png" alt="Employee Image"></span>
+        </li>
+    </ul>
+</div>-->
