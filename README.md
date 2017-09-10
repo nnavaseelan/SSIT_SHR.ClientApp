@@ -1,0 +1,1 @@
+# SSIT_SHR.ClientApp
