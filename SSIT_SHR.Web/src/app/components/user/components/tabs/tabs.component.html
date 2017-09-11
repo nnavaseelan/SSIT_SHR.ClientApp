@@ -673,7 +673,7 @@
                                     <input type="checkbox" [checked]="item.hasItem==1" (change)="Transactiondata(item.transactionCode, $event.target.checked)"  [disabled]="values" [value]="item" >
                                         <span class="cr"></span>
                                    <!-- {{item.transactionCode}} -->
-                                    {{getTranslationItem2(item.transactionCode)}}
+                                 {{item.transactionCode}}:{{getTranslationItem2(item.transactionCode)}}
                                     </label>
                                     <div class="row fieldWidth">
                                       <div class="col-xs-12">

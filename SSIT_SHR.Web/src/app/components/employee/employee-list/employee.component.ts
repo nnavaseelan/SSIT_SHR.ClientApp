@@ -20,15 +20,12 @@ export class Employeecomponent {
 
     @Input() profileName: string;
 
-    finalData = [];
-    loader: boolean = true;
-
-    storage = localStorage.getItem('access_token');
-    currentUser = localStorage.getItem('currentUser.UserID');
-
-    public searchData = {
-
-    }
+    public finalData = [];
+    public loader: boolean = true;
+    public storage = localStorage.getItem('access_token');
+    public currentUser = localStorage.getItem('currentUser.UserID');
+    currentlabelTranslation;
+    labelTranslationItem;
 
     public employee = {
         "UserID": this.currentUser,
@@ -37,27 +34,46 @@ export class Employeecomponent {
         "ID": "",
         "IDAlt": "",
         "ResidencyID": "",
-        "PageSize": "10",
-        "Pagenumber": "1"
+        "PageSize": "",
+        "Pagenumber": ""
+    }
+
+
+    getTranslationItem(item: string) {
+
+        let Menutranslationfile = localStorage.getItem("currentUser.translationfile");
+        if (Menutranslationfile != null) {
+            this.currentlabelTranslation = JSON.parse(Menutranslationfile);
+            this.labelTranslationItem = this.currentlabelTranslation.result[0].rSreturnJSONFile.tc[1].values;
+        }
+
+        if (!item) {
+            return "No Trans";
+        }
+        if (!this.labelTranslationItem) {
+            return "No Trans";
+        }
+        this.labelTranslationItem = this.labelTranslationItem.filter((fitem) => fitem.lbl.toLowerCase().indexOf(item.toLowerCase()) > -1);
+        if (!this.labelTranslationItem[0]) {
+            return "No Trans";
+        }
+        return this.labelTranslationItem[0].txt
     }
 
     toggleSearch(event: any) {
-        console.log("aaayaya",event.srcElement.className);
-         const fas: any = document.querySelector('.searchPlus');
-         fas.classList.toggle('fa-minus');   
-         const dom: any = document.querySelector('.line');
-        
-         dom.classList.toggle('searchHide');
+        const fas: any = document.querySelector('.searchPlus');
+        fas.classList.toggle('fa-minus');
+        const dom: any = document.querySelector('.line');
+        dom.classList.toggle('searchHide');
     }
 
 
     employeeDetail(employee) {
         console.log("Employee", employee.id);
         this.profileName = employee.fullName;
-        this.router.navigate(['/employeelist/employee-detail', employee.id, employee.fullName]);
+        this.router.navigate(['/employeelist/detail', employee.id]);
 
     }
-
 
     employeeListingData() {
         this.employeeService.getEmployeeList(this.employee).map(res => res.json())

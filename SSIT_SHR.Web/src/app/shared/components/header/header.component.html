@@ -20,7 +20,9 @@
     background-color: #222 !important;
     border-color: #222 !important;
     outline: none;
-}
+    }
+    
+
     </style>
 <div class="pos-f-t fixed-top header">
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
@@ -30,8 +32,11 @@
         <a class="navbar-brand"  routerLink="/dashboard" style="text-align: center;"><img src="assets/images/SSIT_Main_Logo.png" style="width: 40%;"/></a>
         <div class="collapse navbar-collapse">
              <p class="responsive-bar"><a href="javascript:void(0)" (click)="toggleSidebar2($event)"><i class="fa fa-bars" aria-hidden="true"></i></a></p>
-            <form class="form-inline my-2 my-lg-0">
-               <span class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></span> <input class="form-control page-search mr-sm-2" type="text" placeholder="Search">
+             <form class="form-inline my-2 my-lg-0" >
+                     <span class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></span> 
+                     <!-- <input class="form-control page-search mr-sm-2" type="text" placeholder="Search">     -->
+                    <ng2-completer [(ngModel)]="searchStr" name="searchStr" style="background-color: #222 !important" [datasource]="dataService" [placeholder]="'Search'" (keypress)="Searchfunction(searchStr)" [minSearchLength]="4" [inputClass]="['search-query']" [clearSelected]="false" (selected)="onSelected($event)" ><i class="fa fa-search" aria-hidden="true"></i></ng2-completer> 
+            <!-- <p style="color:#fff">Selected: {{selectedColor}}</p> -->
             </form>
             <ul class="navbar-nav ml-auto mt-2 mt-md-0">
                 <!-- <li class="nav-item hidden-lg-down">
@@ -100,7 +105,7 @@
                     </ul>
                   
                 </li>
-                <li class="nav-item dropdown" ngbDropdown>
+                <li class="nav-item dropdown drp" ngbDropdown>
                     <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
                         <i class="fa fa-language"></i> {{ 'language' | translate }} <b class="caret"></b>
                     </a>

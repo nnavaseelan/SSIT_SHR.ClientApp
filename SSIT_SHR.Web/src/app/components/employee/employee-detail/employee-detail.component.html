@@ -84,6 +84,7 @@
         padding-left: 205px;
     }
 
+
     .block-menu ul {
         margin: 0;
         padding: 0;
@@ -197,14 +198,20 @@
     }
 
     .card-img-top {
-        max-height: 104px;
-        height: 100px;
-        max-width: 100px;
-        border-radius: 50%;
+        border-radius: 58%;
         border: 3px #5bc0de solid;
-
-        margin: 31px auto;
+        margin: 0 auto;
+        height: 80px;
+        width: 80px;
+        padding: 10px;
         display: table;
+        text-align: center;
+        font-size: 52px;
+    }
+
+    .card-img-top .fa {
+        display: table-cell;
+        vertical-align: middle
     }
 
     .card:hover {
@@ -239,15 +246,82 @@
         border: none;
     }
 
-    .payrollbox{width: 100%;float:left;margin-bottom:20px;}
+    .payrollbox {
+        width: 100%;
+        float: left;
+        margin-bottom: 20px;
+    }
+
+    .profile-img {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1;
+    }
+
+    #fileuld {
+        display: none;
+    }
+
+    .imgWrap {
+        position: relative;
+        cursor: pointer
+    }
+
+    .imgWrap .editIcon {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background: #365899;
+        color: #ffffff;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+    }
+
+    .searchHide {
+        display: none;
+    }
+
+
+    #table-payroll,
+    #table-payroll tr,
+    #table-payroll th,
+    #table-payroll td {
+        border: 1px solid #000 !important;
+    }
+
+    .payroll-table-border {
+        border-top: 3px solid #000;
+        border-bottom: 3px solid #000;
+        padding: 30px 0 15px;
+        margin: 20px 0 50px;
+    }
+
+    .payroll-table-border .form-group {
+        margin-bottom: 15px;
+    }
+
+    .rtl .btn .saveTable {
+        float: left;
+    }
 </style>
 <div class="fb-profile-block">
     <div class="fb-profile-block-thumb" style="background-color: gainsboro;"><img alt="" title=""></div>
-    <div class="profile-img"><a href="javascript:void(0)"><img [src]="'data:image/jpeg;base64,'+employeeMaster.picture" alt="" title=""></a></div>
-    <input type="file" class="upload" name="profileUrl" (change)="profileEvent($event)" />
+    <div class="profile-img">
+        <label for="fileuld" class="imgWrap">
+            <div class="imgwrap">
+                <img [src]="'data:image/jpeg;base64,'+picture.pictureID" alt="" title="">               
+            </div>
+            <span class="editIcon"><i class="glyphicon glyphicon-pencil"></i></span>            
+        </label>
+        <input type="file" [disabled]="values" id="fileuld" class="upload" name="profileUrl" (change)="profileEvent($event)" />
+    </div>
+
     <div class="profile-name">
-        <button class="btn btn-primary" *ngIf="values == true" style="margin-bottom:10px;" (click)="onUpdate()"><i class="glyphicon glyphicon-pencil"></i>&nbsp; Edit</button>
-        <button class="btn btn-primary" *ngIf="values == false" style="margin-bottom:10px;" (click)="onUpdate()"><i class="glyphicon glyphicon-send"></i>&nbsp; Update</button>
+        <button class="btn btn-primary" name="saveButton" *ngIf="values == true" style="margin-bottom:10px;" (click)="onUpdate()"><i class="glyphicon glyphicon-pencil"></i>&nbsp; {{getTranslationItem('lbl_btn_edit',2)}}</button>
+        <button class="btn btn-primary" name="updateButton" *ngIf="values == false" style="margin-bottom:10px;" (click)="onUpdate()"><i class="glyphicon glyphicon-send"></i>&nbsp; {{getTranslationItem('lbl_btn_update',2)}}</button>
         <h2>{{employeeMaster.fullName}}</h2>
     </div>
 
@@ -255,17 +329,25 @@
         <div class="block-menu" style="background-color:#4b4f56">
             <ul class="tabs">
                 <ngb-tabset type="pills">
-                    <ngb-tab title="Master">
+                    <ngb-tab title="{{getTranslationItem('lbl_tab_master',2)}}">
                         <ng-template ngbTabContent #tabbingData>
                             <form name="masterTabForm" #masterTabForm="ngForm" (ngSubmit)="masterData()">
                                 <div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>EmployeeStatusID:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_employee_status',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <select [disabled]="values" name="id" [(ngModel)]="employeeMaster.id"> 
-                                                <option value="{{employeeMaster.id}}">{{employeeMaster.id}}
+                                                <option>{{getTranslationItem('1',6)}} 
+                                                </option>
+                                                <option>{{getTranslationItem('2',6)}} 
+                                                </option>
+                                                <option>{{getTranslationItem('3',6)}} 
+                                                </option>
+                                                <option>{{getTranslationItem('4',6)}} 
+                                                </option>
+                                                <option>{{getTranslationItem('5',6)}} 
                                                 </option>
                                                 </select>
                                             </div>
@@ -274,7 +356,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>IDAlt:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_idalt',2)}} :</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <input type="text" name="idAlt" #idAlt="ngModel" [(ngModel)]="employeeMaster.idAlt" [disabled]="values" value="{{employeeMaster.idAlt}}">
                                             </div>
@@ -283,7 +365,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>GivenName:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_givenName',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <input type="text" [disabled]="values" name="givenName" [(ngModel)]="employeeMaster.givenName" value="{{employeeMaster.givenName}}">
                                             </div>
@@ -292,7 +374,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>Surname:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_surname',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <input type="text" [disabled]="values" name="surname" [(ngModel)]="employeeMaster.surname" value="{{employeeMaster.surname}}">
                                             </div>
@@ -301,7 +383,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>AlternativeName:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_alternativeName',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <input type="text" [disabled]="values" name="alternativeName" [(ngModel)]="employeeMaster.alternativeName">
                                             </div>
@@ -310,7 +392,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>FullName:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_fullName',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <input type="text" [disabled]="values" name="fullName" [(ngModel)]="employeeMaster.fullName" value="{{employeeMaster.fullName}}">
                                             </div>
@@ -319,11 +401,18 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>ReligionID:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_religionID',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
-                                                <!-- <input type="text" [disabled]="values" value="{{religionID}}"> -->
                                                 <select name="religionID" [disabled]="values" [(ngModel)]="employeeMaster.religionID">
-                                                <option value="{{employeeMaster.religionID}}">{{employeeMaster.religionID}}
+                                                <option>{{getTranslationItem('1',5)}}
+                                                </option>
+                                                <option>{{getTranslationItem('2',5)}}
+                                                </option>
+                                                <option>{{getTranslationItem('3',5)}}
+                                                </option>
+                                                <option>{{getTranslationItem('4',5)}}
+                                                </option>
+                                                <option>{{getTranslationItem('5',5)}}
                                                 </option>
                                                 </select>
                                             </div>
@@ -332,20 +421,27 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>Gender:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_gender',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
-                                                <input type="text" [disabled]="values" value="{{employeeMaster.gender}}" name="gender" [(ngModel)]="employeeMaster.gender">
+                                                <select [disabled]="values" name="gender" [(ngModel)]="employeeMaster.gender">
+                                                <option>{{getTranslationItem('gender_male',10)}}
+                                                </option>
+                                                <option>{{getTranslationItem('gender_female',10)}}
+                                                </option>
+                                                </select>
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>MaritalStatusID:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_maritalStatusID',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
-                                                <!--<input type="text" [disabled]="values" value="{{maritalStatusID}}"> -->
                                                 <select name="maritalStatusID" [disabled]="values" [(ngModel)]="employeeMaster.maritalStatusID">
-                                                <option>{{employeeMaster.maritalStatusID}}
+                                                <option>{{getTranslationItem('married_status_married',11)}}
+                                                </option>
+                                                <option>{{getTranslationItem('married_status_unmarried',11)}}
                                                 </option>
                                                 </select>
                                             </div>
@@ -354,12 +450,21 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>NationalityID:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_nationalityID',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
-                                                <!--  <input type="text" [disabled]="values" value="{{nationalityID}}"> -->
                                                 <select [disabled]="values" [(ngModel)]="employeeMaster.nationalityID" name="nationalityID">
-                                                <option value="{{employeeMaster.nationalityID}}">{{employeeMaster.nationalityID}}
-                                                </option>
+                                                   <option>{{getTranslationItem('country_india',12)}}
+                                                    </option>
+                                                    <option>{{getTranslationItem('country_saudiArabia',12)}}
+                                                    </option>
+                                                    <option>{{getTranslationItem('country_dubai',12)}}
+                                                    </option>
+                                                    <option>{{getTranslationItem('country_switzerland',12)}}
+                                                    </option>
+                                                    <option>{{getTranslationItem('country_russia',12)}}
+                                                    </option>
+                                                    <option>{{getTranslationItem('country_africa',12)}}
+                                                    </option>
                                                 </select>
                                             </div>
                                         </div>
@@ -367,12 +472,21 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>BloodTypeID:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_bloodTypeID',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
-                                                <!-- <input type="text" [disabled]="values" value="{{bloodTypeID}}"> -->
                                                 <select [disabled]="values" [(ngModel)]="employeeMaster.bloodTypeID" name="bloodTypeID">
-                                                <option value="{{employeeMaster.bloodTypeID}}">{{employeeMaster.bloodTypeID}}
-                                                </option>
+                                                    <option>{{getTranslationItem('blood_a+',13)}}
+                                                    </option>
+                                                    <option>{{getTranslationItem('blood_b+',13)}}
+                                                    </option>
+                                                    <option>{{getTranslationItem('blood_ab+',13)}}
+                                                    </option>
+                                                    <option>{{getTranslationItem('blood_ab-',13)}}
+                                                    </option>
+                                                    <option>{{getTranslationItem('blood_o-',13)}}
+                                                    </option>
+                                                    <option>{{getTranslationItem('blood_o+',13)}}
+                                                    </option>
                                                 </select>
                                             </div>
                                         </div>
@@ -380,7 +494,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>Email:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_User_Email',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <input type="text" [disabled]="values" name="email" [(ngModel)]="employeeMaster.email" value="{{employeeMaster.email}}">
                                             </div>
@@ -389,7 +503,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>MobileNumber:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_mobileNumber',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <input type="text" [disabled]="values" name="mobileNumber" [(ngModel)]="employeeMaster.mobileNumber" value="{{employeeMaster.mobileNumber}}">
                                             </div>
@@ -398,7 +512,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>ForeignMobileNumber:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_foreignMobileNumber',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <input type="text" [disabled]="values" name="foreignMobileNumber" [(ngModel)]="employeeMaster.foreignMobileNumber" value="{{employeeMaster.foreignMobileNumber}}">
                                             </div>
@@ -407,7 +521,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>Landline:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_landline',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <input type="text" [disabled]="values" name="landline" value="{{employeeMaster.landline}}" [(ngModel)]="employeeMaster.landline">
                                             </div>
@@ -416,7 +530,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>Address:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_address',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <input type="text" [disabled]="values" name="address" [(ngModel)]="employeeMaster.address" value="{{employeeMaster.address}}">
                                             </div>
@@ -425,7 +539,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>District:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_district',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <input type="text" [disabled]="values" [(ngModel)]="employeeMaster.district" name="district" value="{{employeeMaster.district}}">
                                             </div>
@@ -434,7 +548,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>City:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_city',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <input type="text" [disabled]="values" name="city" [(ngModel)]="employeeMaster.city" value="{{employeeMaster.city}}">
                                             </div>
@@ -443,12 +557,21 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>CountryID:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_countryID',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
-                                                <!-- <input type="text" [disabled]="values" value="{{countryID}}"> -->
-                                                <select [disabled]="values">
-                                                <option value="{{employeeMaster.countryID}}" name="countryID" >{{employeeMaster.countryID}}
-                                                </option>
+                                                <select [disabled]="values" name="countryName" [(ngModel)]="employeeMaster.countryID">
+                                                    <option>{{getTranslationItem('country_india',12)}}
+                                                    </option>
+                                                    <option>{{getTranslationItem('country_saudiArabia',12)}}
+                                                    </option>
+                                                    <option>{{getTranslationItem('country_dubai',12)}}
+                                                    </option>
+                                                    <option>{{getTranslationItem('country_switzerland',12)}}
+                                                    </option>
+                                                    <option>{{getTranslationItem('country_russia',12)}}
+                                                    </option>
+                                                    <option>{{getTranslationItem('country_africa',12)}}
+                                                    </option>
                                                 </select>
                                             </div>
                                         </div>
@@ -456,30 +579,31 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <label><b>BirthDate:</b></label></div>
+                                                <label><b>{{getTranslationItem('lbl_birthDate',2)}}:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <input type="date" [disabled]="values" name="birthDate" [(ngModel)]="employeeMaster.birthDate" value="{{employeeMaster.birthDate}}">
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" [disabled]="values" class="btn btn-primary pull-right">Save</button>
+                                    <button type="submit" [disabled]="values" style="display: none;" class="btn btn-primary pull-right">Save</button>
                                     <div id="snackbar">{{message}}</div>
                                 </div>
                             </form>
                         </ng-template>
                     </ngb-tab>
-                    <ngb-tab title="Employment">
+                    <ngb-tab title="{{getTranslationItem('lbl_tab_employment',2)}}">
                         <ng-template ngbTabContent>
                             <div class="row" (click)="showHide = !showHide" [hidden]="showHide">
-                                <div class="card" style="width: 20rem; padding:5px" *ngFor="let employeeContent of employment;let i=index" (click)="employmentTabData(employeeContent,i)">
-                                    <img class="card-img-top img-circle" src="https://www.w3schools.com/bootstrap/paris.jpg" alt="Card image cap">
+                                <div class="card" style="width: 20rem; padding:20px" *ngFor="let employeeContent of employment;let i=index" (click)="employmentTabData(employeeContent,i)">
+                                    <!--<img class="card-img-top img-circle" src="" alt="Card image cap"> -->
+                                    <div class="card-img-top img-circle">
+                                        <i *ngIf="employeeContent.isRunning == true" class="fa fa-check " aria-hidden="true" style="color:green"></i>
+                                        <i class="fa fa-times" *ngIf="employeeContent.isRunning == false" aria-hidden="true" style="color:red"></i>                                        </div>
                                     <div class="card-block">
                                         <h4 class="card-title">{{employeeContent.totalPayroll}}</h4>
-                                        <div class="col-md-6 col-xs-6 right-desktop"><i class="fa fa-desktop" aria-hidden="true"></i>&nbsp; {{employeeContent.startDate}}</div>
-                                        <div class="col-md-6 col-xs-6 iconCheck"><i *ngIf="employeeContent.isRunning == true" class="fa fa-check" aria-hidden="true"
-                                                style="color:green"></i><i class="fa fa-times" *ngIf="employeeContent.isRunning == false"
-                                                aria-hidden="true" style="color:red"></i></div>
-                                        <p class="card-text" style="text-align: center;"><b>Created on</b>&nbsp;&nbsp; {{employeeContent.entityName}}</p>
+                                        <div class="col-md-6 col-xs-6 right-desktop">&nbsp; {{employeeContent.startDate}}</div>
+                                        <div class="col-md-6 col-xs-6 iconCheck">{{employeeContent.expiryDate?employeeContent.expiryDate:'-'}}</div>
+                                        <p class="card-text" style="text-align: center;">&nbsp;&nbsp; {{employeeContent.entityName}}</p>
                                         <p class="card-text" style="text-align: center;">{{employeeContent.departmentName}}</p>
                                     </div>
                                 </div>
@@ -487,110 +611,187 @@
                             <div class="row" [hidden]="!showHide">
                                 <div class="col-md-12">
                                     <div class="row">
-                                         <div class="col-md-12">
-                                             <button class="btn btn-primary pull-right" (click)="showHide = !showHide">Back</button>
-                                         </div>
+                                        <div class="col-md-12">
+                                            <button class="btn btn-primary pull-right test-back-btn" (click)="showHide = !showHide"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp; {{getTranslationItem('lbl_btn_back',2)}}</button>
+                                        </div>
                                     </div>
-                                
-                                <form name="payRollTabForm" #payRollTabForm="ngForm">
-                                    <div class="payrollbox">
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <div class="row">
-                                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                                    <label><b>Test Data 1:</b></label></div>
-                                                <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <input type="text" name="idAlt" >
+
+                                    <form name="payRollTabForm" #payRollTabForm="ngForm">
+                                        <div class="payrollbox">
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                                        <label><b>Test Data 1:</b></label></div>
+                                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                                        <input type="text" name="idAlt">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                                        <label><b>Test Data 2:</b></label></div>
+                                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                                        <input type="text" name="idAlt">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                                        <label><b>Test Data 3:</b></label></div>
+                                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                                        <input type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                                        <label><b>Test Data 4:</b></label></div>
+                                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                                        <input type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                                        <label><b>Test Data 5:</b></label></div>
+                                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                                        <input type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                                        <label><b>Test Data 6:</b></label></div>
+                                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                                        <input type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div style="margin-bottom: 21px;font-size:20px;"><i class="fa fa-plus searchPlus" aria-hidden="true" (click)="toggleSearch($event)"></i>&nbsp;
+                                            {{getTranslationItem('lbl_payroll_items',2)}}
+                                        </div>
+
+                                        <div class="form-inline line searchHide searchForm payroll-table-border ">
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="email" class="col-sm-5 control-label"><b>Given Name:</b></label>
+                                                    <div class="col-sm-7">
+                                                        <input type="text" class="form-control" id="email" name="GivenName">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="pwd" class="col-sm-5 control-label"><b>SurName:</b></label>
+                                                    <div class="col-sm-7">
+                                                        <input type="text" class="form-control" id="pwd" name="SurName">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="pwd" class="col-sm-5 control-label"><b>Residency:</b></label>
+                                                    <div class="col-sm-7">
+                                                        <input type="text" class="form-control" id="pwd">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="email" class="col-sm-5 control-label"><b>Name:</b></label>
+                                                    <div class="col-sm-7">
+                                                        <input type="text" class="form-control" id="email">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="pwd" class="col-sm-5 control-label"><b>Id:</b></label>
+                                                    <div class="col-sm-7">
+                                                        <input type="text" class="form-control" id="pwd">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="pwd" class="col-sm-5 control-label"><b>Passport:</b></label>
+                                                    <div class="col-sm-7">
+                                                        <input type="text" class="form-control" id="pwd">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12 col-xs-12 col-xs-12 ">
+                                                <div class="form-group ">
+                                                    <button class="pull-right btn btn-primary" (click)="employeeListingData()">Search</button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <div class="row">
-                                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                                    <label><b>Test Data 2:</b></label></div>
-                                                <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <input type="text" name="idAlt" >
-                                                </div>
-                                            </div>
+
+
+
+                                        <table class="table table-striped" id='table-payroll' [mfData]="payRollArray" #mf="mfDataTable" [mfRowsOnPage]="5">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 20%">
+                                                        <mfDefaultSorter by="amount">{{getTranslationItem('lbl_payroll_data',2)}} &nbsp;<i class="fa fa-sort"></i></mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 20%">
+                                                        <mfDefaultSorter by="currencyCode">{{getTranslationItem('lbl_amount',2)}} &nbsp;<i class="fa fa-sort"></i></mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 20%">
+                                                        <mfDefaultSorter by="paymentMethodID">{{getTranslationItem('lbl_occurance',2)}}  &nbsp;<i class="fa fa-sort"></i></mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 20%">
+                                                        <mfDefaultSorter by="paymentMethodID">{{getTranslationItem('lbl_payment_method',2)}} &nbsp;<i class="fa fa-sort"></i></mfDefaultSorter>
+                                                    </th>
+                                                    <th style="width: 20%">
+                                                        <mfDefaultSorter by="paymentMethodID">{{getTranslationItem('lbl_is_frozen',2)}} &nbsp;<i class="fa fa-sort"></i></mfDefaultSorter>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let payData of mf.data">
+                                                    <td><input type="text" name="currencyCode" value="{{payData.currencyCode}}"
+                                                        /></td>
+                                                    <td><input type="text" name="amount" value="{{payData.amount}}" /></td>
+                                                    <td><input type="text" name="currencyCode" value="{{payData.currencyCode}}"
+                                                        /></td>
+                                                    <td><input type="text" name="paymentMethodId" value="{{payData.paymentMethodID}}"
+                                                        /></td>
+                                                    <td><input type="text" name="paymentMethod" value="{{payData.paymentMethodID}}"
+                                                        /></td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="4">
+                                                        <mfBootstrapPaginator></mfBootstrapPaginator>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <div class="row">
+                                            <button type="button" class="btn btn-primary pull-left "><i class="glyphicon glyphicon-pencil"></i>&nbsp; {{getTranslationItem('lbl_btn_edit',2)}}</button>
                                         </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <div class="row">
-                                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                                    <label><b>Test Data 3:</b></label></div>
-                                                <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <input type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <div class="row">
-                                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                                    <label><b>Test Data 4:</b></label></div>
-                                                <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <input type="text" >
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <div class="row">
-                                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                                    <label><b>Test Data 5:</b></label></div>
-                                                <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <input type="text" >
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <div class="row">
-                                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                                    <label><b>Test Data 6:</b></label></div>
-                                                <div class="col-md-8 col-sm-8 col-xs-12">
-                                                    <input type="text" >
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                
-                                    <table class="table table-striped" [mfData]="payRollArray" #mf="mfDataTable" [mfRowsOnPage]="5">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 25%">
-                                                <mfDefaultSorter by="amount">Amount</mfDefaultSorter>
-                                            </th>
-                                            <th style="width: 25%">
-                                                <mfDefaultSorter by="currencyCode">currency Code</mfDefaultSorter>
-                                            </th>
-                                            <th style="width: 25%">
-                                                <mfDefaultSorter by="paymentMethodID">Payment Method</mfDefaultSorter>
-                                            </th>
-                                            <th style="width: 25%">
-                                                <mfDefaultSorter by="paymentMethodID">Occurance</mfDefaultSorter>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let payData of mf.data">
-                                            <td>{{payData.amount}}</td>
-                                            <td>{{payData.currencyCode}}</td>
-                                            <td>{{payData.paymentMethodID}}</td>
-                                            <td>{{payData.paymentMethodID}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="4">
-                                                <mfBootstrapPaginator></mfBootstrapPaginator>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                                <button type="submit" class="btn btn-primary pull-right">Save</button>
-                                </form>
+                                        <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp; {{getTranslationItem('lbl_btn_Save',2)}}</button>
+
+                                    </form>
+
                                 </div>
                             </div>
                         </ng-template>
                     </ngb-tab>
-                    <ngb-tab title="Bank Connection">
+
+                    <ngb-tab title="{{getTranslationItem('lbl_tab_bankConnection',2)}}">
                         <ng-template ngbTabContent>
                             <div *ngFor="let employeeContent of employment">
                                 <b>Department Name:</b> {{employeeContent.departmentName}}
@@ -598,7 +799,7 @@
                             </div>
                         </ng-template>
                     </ngb-tab>
-                    <ngb-tab title="insurance">
+                    <ngb-tab title="{{getTranslationItem('lbl_tab_insurance',2)}}">
                         <ng-template ngbTabContent>
                             <div *ngFor="let insuranceContent of insurance">
                                 <b>Insurance Name:</b> {{insuranceContent.insuranceCompanyName}}
@@ -607,7 +808,7 @@
                             </div>
                         </ng-template>
                     </ngb-tab>
-                    <ngb-tab title="residentialDocument">
+                    <ngb-tab title="{{getTranslationItem('lbl_tab_residentalDocument',2)}}">
                         <ng-template ngbTabContent>
                             <div *ngFor="let residentalContent of residentialDocument">
                                 <b>Expiry Date:</b> {{residentalContent.expiryDate}}
@@ -618,6 +819,8 @@
                     </ngb-tab>
                 </ngb-tabset>
             </ul>
+
         </div>
     </div>
+
 </div>

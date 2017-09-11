@@ -1,11 +1,11 @@
  <div [@routerTransition]>
-<!-- <div style="margin-bottom: 21px;"><i class="fa fa-plus searchPlus fa-minus" aria-hidden="true" (click)="toggleSearch($event)"></i>&nbsp; Search</div> -->
-     <div class="line searchHide">
+  <div style="margin-bottom: 21px;"><i class="fa fa-minus searchPlus " aria-hidden="true" (click)="toggleSearch($event)"></i>&nbsp; Search</div>
+     <div class="line">
        <div class="form-inline searchForm">
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <div class="row">
-                    <label class="col-sm-5 contenttext control-label">{{getTranslationItem('lbl_User_FullName')}}:</label>
+                    <b class="col-sm-5 contenttext control-label">{{getTranslationItem('lbl_User_FullName')}}:</b>
                     <div class="col-sm-7">
                          <input type="text" class="form-control" [(ngModel)]="Fullname" name="Fullname">
                     </div>
@@ -15,7 +15,7 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <div class="row">
-                    <label  class="col-sm-5 contenttext control-label">{{getTranslationItem('lbl_User_UserName')}}:</label>
+                    <b  class="col-sm-5 contenttext control-label">{{getTranslationItem('lbl_User_UserName')}}:</b>
                     <div class="col-sm-7">
                          <input  type="text" class="form-control"[(ngModel)]="Username" name="Username" >
                     </div>
@@ -25,7 +25,7 @@
            <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <div class="row">
-                    <label for="email" class="col-sm-5 contenttext control-label">{{getTranslationItem('lbl_User_Email')}}:</label>
+                    <b for="email" class="col-sm-5 contenttext control-label">{{getTranslationItem('lbl_User_Email')}}:</b>
                     <div class="col-sm-7">
                         <!-- <input type="text" class="form-control" id="email"> -->
                          <input class="form-control textcom"[(ngModel)]="Email" name="Email" >
@@ -33,14 +33,21 @@
                         </div>
                 </div>
             </div> 
-                 <div class="col-md-6">
-                <button type="submit" class="btn btn-secondary butttttn " (click)="userlist()">{{getTranslationItem('lbl_btn_Search')}}</button>
+                <button class="pull-right btn btn-primary butttttn" (click)="userlist()"><i class="glyphicon glyphicon-search bttnicon"></i>{{getTranslationItem('lbl_btn_Search')}}</button>
+                    <!-- <button type="submit" class="btn btn-secondary butttttn " (click)="userlist()">{{getTranslationItem('lbl_btn_Search')}}</button> -->
+                <!-- <button type="submit" class="btn btn-secondary btn-success" (click)="Redirect()" routerLink="/adduser" >{{getTranslationItem('lbl_btn_Adduser')}}</button> -->
              </div>
-           
-             <button type="submit" class="btn btn-secondary btn-success" (click)="Redirect()" routerLink="/adduser" >{{getTranslationItem('lbl_btn_Adduser')}}</button>
-         
-           </div>
-        
+            </div>   
+        <div class="row">
+        <div class="col-md-12">
+      <button class="pull-right btn btn-primary " (click)="Redirect()"><i class="glyphicon glyphicon-user bttnicon"></i>{{getTranslationItem('lbl_btn_Adduser')}}</button> 
+        </div>
+      </div>
+     <div class="row">
+        <div class="col-md-12">
+       &nbsp;
+        </div>
+      </div>
 <!-- <div class="row">
      <div class="col-lg-12">
      <form role="form">
@@ -107,5 +114,5 @@
                 </div>
 <!-- <pre *ngIf="config.paging" class="card card-block card-header">Page: {{page}} / {{totalPage}}</pre>     -->
  </div>
-</div>  
+
  

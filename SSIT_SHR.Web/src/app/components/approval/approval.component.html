@@ -1,0 +1,81 @@
+<div style="margin-bottom: 21px;"><i class="fa fa-minus searchPlus " aria-hidden="true" (click)="toggleSearch($event)"></i>&nbsp; Search</div>
+<div class="line">
+       <div class="form-inline searchForm">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group">
+                    <label for="email" class="col-sm-5 control-label"><b>ID:</b></label>
+                    <div class="col-sm-7">
+                        <input type="text"  class="form-control" id="email"  name="GivenName" >
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group">
+                    <label for="pwd" class="col-sm-5 control-label"><b>ID Alt:</b></label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="pwd"  name="SurName">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group">
+                    <label for="pwd" class="col-sm-5 control-label"><b>Residency:</b></label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="pwd">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group">
+                    <label for="email" class="col-sm-5 control-label"><b>Request Type:</b></label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="email">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group">
+                    <label for="pwd" class="col-sm-5 control-label"><b>Name:</b></label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="pwd">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group">
+                    <label for="pwd" class="col-sm-5 control-label"><b>Passport:</b></label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="pwd">
+                    </div>
+                </div>
+            </div>
+       
+        <div class="col-md-12 col-xs-12 col-xs-12 ">
+            <div class="form-group ">
+                <button class="pull-right btn btn-primary" (click)="userapproval()">Search</button>
+            </div>
+        </div>
+ </div>  
+    </div>
+ <div *ngIf="show">
+<div class="table-responsive">
+ <ng-table
+  [config]="config"
+          (tableChanged)="onChangeTable(config)"
+          (cellClicked)="onCellClick($event)"
+          [rows]="rows" [columns]="columns">
+</ng-table> 
+ </div>
+ <div class="page-side">
+<ngb-pagination *ngIf="config.paging"
+                class="pagination-sm"
+                [(page)]="page"
+                [collectionSize]="length"
+                [pageSize]="itemsPerPage"
+                [maxSize]="maxSize"
+                [boundaryLinks]="true"
+                [rotate]="false"
+                (pageChange)="onChangeTable(config, $event)"></ngb-pagination>
+                </div>
+<!-- <pre *ngIf="config.paging" class="card card-block card-header">Page: {{page}} / {{totalPage}}</pre>     -->
+ </div>

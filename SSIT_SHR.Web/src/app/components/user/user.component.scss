@@ -41,24 +41,24 @@ thead {
 a{
     text-decoration: none;
 }
-.butttttn{
-    background: #5cb85c;
-    color:#fff;
-    border-color: #5cb85c;
-    margin-bottom: 10px;
-}
-.butttttn:hover{
-    color: #fff;
-    background-color: #449d44;
-    background-image: none;
-    border-color: #419641;
-}
-.butttttn:active{
-    color: #fff;
-    background-color: #449d44;
-    background-image: none;
-    border-color: #419641;
-}
+// .butttttn{
+//     background: #5cb85c;
+//     color:#fff;
+//     border-color: #5cb85c;
+//     margin-bottom: 10px;
+// }
+// .butttttn:hover{
+//     color: #fff;
+//     background-color: #449d44;
+//     background-image: none;
+//     border-color: #419641;
+// }
+// .butttttn:active{
+//     color: #fff;
+//     background-color: #449d44;
+//     background-image: none;
+//     border-color: #419641;
+// }
 
 .line {
         border-top: 2px black solid;
@@ -81,6 +81,14 @@ a{
     }
     .textcom{
             margin-left: 10px;
+    }
+     .butttttn{
+                 margin-bottom: 18px;
+                 margin-left: 8px;
+    }
+    .bttnicon{
+            margin-right: 3px;
+
     }
 // <-----main bootstrap css----->
 

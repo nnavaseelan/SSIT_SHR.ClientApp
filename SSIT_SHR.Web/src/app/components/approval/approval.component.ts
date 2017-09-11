@@ -1,20 +1,23 @@
 import {Component,OnInit} from '@angular/core'
 import { Router, NavigationEnd } from '@angular/router';
-import { Userservice } from './user.service';
+import { Approvalservice} from './approval.service';
 import { routerTransition } from '../../router.animations';
-
+import { DatePipe } from '@angular/common';
 
 @Component({
-    selector: 'app-user',
-    templateUrl: './user.component.html',
-    styleUrls: ['./user.component.scss'],
+    selector: 'app-myapproval',
+    templateUrl: './approval.component.html',
+    styleUrls: ['./approval.component.scss'],
     animations: [routerTransition()]
 })
-export class Usercomponent {
+export class Approvalcomponent {
   public Username:"";
   public Fullname:"";
+  public paymentrequest:any;
+  public value:boolean=false;
   public show:boolean=false;
   public Email:"";
+  public requestStartDate:Date;
   public userdata: Array<any>;
   public rows: Array<any> = [];
   labelTranslationItem:any;
@@ -22,17 +25,29 @@ export class Usercomponent {
   public columns: Array<any>=[
     
      {
-      title:this.getTranslationItem('lbl_User_FullName'),
-      name: 'fullName',
+      title:'Request Type',
+      name: 'requestTypeID'
+      
     },
     {
-      title:this.getTranslationItem('lbl_User_UserName'),
-      name: 'username'
+      title:'Request Date',
+      name: 'requestStartDate',
+      
+     
+    },
+     {
+      title:'Employee',
+      name:'fullName'
     },
     {
-      title:this.getTranslationItem('lbl_User_Email'),
-      name: 'email'
+      title:'Content',
+      name: 'content'
     },
+    {
+      title:'Approvals Done',
+      name:'approvalsDone'
+    },
+    
   ]; 
   public page: number = 1;
   public itemsPerPage: number = 20;
@@ -48,9 +63,10 @@ export class Usercomponent {
   public data: Array<any> =this.data;
   edited:boolean;
 
-constructor(public userservice:Userservice, public router:Router){}
+constructor(public approvalservice:Approvalservice, public router:Router,private datePipe: DatePipe){}
    
   ngOnInit(){
+    this.value=false;
 
     }
 
@@ -68,23 +84,13 @@ constructor(public userservice:Userservice, public router:Router){}
                 fas.classList.toggle('fa-plus'); 
           }
     }       
-    public userlist(){
-        this.userservice.Userlist(this.Username,this.Fullname,this.Email).subscribe((res) => {
-        this.data=(res.result);
-         console.log(this.data);
-          this.length = this.data.length;
-          this.totalPage = this.length/this.itemsPerPage;
-          this.totalPage= Math.ceil(this.totalPage);
-         this.onChangeTable(this.config);
-         this.show=true;
-     })
-  }
-   getTranslationItem(item: string) {
+getTranslationItem(item: string) {
+  debugger;
           let Menutranslationfile = localStorage.getItem("currentUser.translationfile");
                if(Menutranslationfile!=null)
                {
                this.currentlabelTranslation = JSON.parse(Menutranslationfile);
-               this.labelTranslationItem=this.currentlabelTranslation.result[0].rSreturnJSONFile.tc[1].values;
+               this.labelTranslationItem=this.currentlabelTranslation.result[0].rSreturnJSONFile.tc[15].values;
                 }    
            if (!item) {
                  return "No Trans";
@@ -93,13 +99,33 @@ constructor(public userservice:Userservice, public router:Router){}
             {
               return "No Trans";
             }
-         this.labelTranslationItem = this.labelTranslationItem.filter((fitem) => fitem.lbl.toLowerCase().indexOf(item.toLowerCase())>-1);
+         this.labelTranslationItem = this.labelTranslationItem.filter((fitem) => fitem.lbl.indexOf(item)>-1);
           if (!this.labelTranslationItem[0]) {
                 return "No Trans";
                 }
            return   this.labelTranslationItem[0].txt
 }
+ public userapproval(){
+        debugger;
+       this.approvalservice.userApproval().subscribe((res) =>{
+        this.data=(res.result.userPendingApprovals);
+         console.log(this.data);
+         for(var i=0;i<this.data.length;i++)
+          {
+            this.data[i].requestStartDate = this.datePipe.transform(this.data[i].requestStartDate, 'yyyy-MM-dd');
+            this.data[i].requestTypeID = this.getTranslationItem(this.data[i].requestTypeID);
+            console.log(this.data[i].requestStartDate);
+          }
+           this.length = this.data.length;
+           this.totalPage = this.length/this.itemsPerPage;
+           this.totalPage= Math.ceil(this.totalPage);
+           this.onChangeTable(this.config);
+           this.show=true;
+         
+     })
 
+    }
+  
    public changePage(page: any, data: Array<any> = this.data): Array<any> {
     let start = (page.page - 1) * page.itemsPerPage;
     let end = page.itemsPerPage > -1
@@ -200,9 +226,15 @@ public changeFilter(data: any, config: any): any {
     this.length = sortedData.length;
   }
   public onCellClick(userdedaildata: any): any {
-    this.router.navigate(['./userview']);
-    localStorage.setItem("userdetailId",userdedaildata.row.userID);
-    console.log(userdedaildata.row.userID);
+    debugger;
+    // this.router.navigate(['./userview']);
+    // localStorage.setItem("userdetailId",userdedaildata.row.userID);
+    // console.log(userdedaildata.row.userID);
+    
+     this.router.navigate(['/myapproval/paymentrequest']);
+      localStorage.setItem("requestTypeID",userdedaildata.row.requestTypeID);
+      localStorage.setItem("requestStartDate",userdedaildata.row.requestStartDate);
+      localStorage.setItem("employmentID",userdedaildata.row.fullName);
   }
   public  Redirect(){
       this.router.navigate(['./adduser']);

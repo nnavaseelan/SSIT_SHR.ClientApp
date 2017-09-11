@@ -3,22 +3,21 @@ import { Router } from '@angular/router';
 import { MenuService } from '../../menu/menu.service';
 import { TranslationService } from '../../translation/translation.service';
 
-
 @Component({
     selector: 'app-sidebar',
     templateUrl: './sidebar.component.html',
     styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
-    isActive = false;
-    menuItems: Array<any>;
-    showMenu = '';
-    menuTranslation: Array<any>;
-    menuTranslationItem: any;
-    selectedItem: any;
-    currentMenuTranslation: any
-    currentNavMenu: any
-    router: Router;
+    public isActive = false;
+    public menuItems: Array<any>;
+    public showMenu = '';
+    public menuTranslation: Array<any>;
+    public menuTranslationItem: any;
+    public selectedItem: any;
+    public currentMenuTranslation: any
+    public currentNavMenu: any
+    public router: Router;
     constructor(public menu: MenuService, public injector: Injector, public translation: TranslationService) {
 
         // this.menuItems = menu.getMenu();
@@ -50,7 +49,7 @@ export class SidebarComponent {
         }
     }
     ngOnInit() {
-
+        console.log("bye>>>");
         this.router = this.injector.get(Router);
 
         this.router.events.subscribe((val) => {
@@ -60,14 +59,11 @@ export class SidebarComponent {
             window.scrollTo(0, 0);
         });
 
-
         let NavMenu = localStorage.getItem("currentUser.currentmenu");
         if (NavMenu != null) {
             this.currentNavMenu = JSON.parse(NavMenu);
             this.menuItems = this.currentNavMenu
         }
-
-
 
         let Menutranslationfile = localStorage.getItem("currentUser.translationfile");
         if (Menutranslationfile != null) {

@@ -1,5 +1,5 @@
 import { NgModule ,CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA} from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { Http, HttpModule ,RequestOptions,XHRBackend  } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,7 +19,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppSettings } from './shared/core/app.settings';
 import { Headerservice } from './shared/components/header/header.service';
 import { DataTableModule} from "angular2-datatable";
-
+import { Ng2CompleterModule } from "ng2-completer";
+import {Approvalservice} from 'app/components/approval/approval.service';
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
 }
@@ -30,8 +31,8 @@ export function HttpLoaderFactory(http: Http) {
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        FormsModule,
-        CommonModule,
+        FormsModule,ReactiveFormsModule,
+        CommonModule, Ng2CompleterModule,
         HttpModule,
         AppRoutingModule,
         DataTableModule,
@@ -43,9 +44,10 @@ export function HttpLoaderFactory(http: Http) {
             }
         })
     ],
-    providers: [AuthGuard,LoginService,Headerservice,MenuService,HttpService,Userservice,TranslationService,AppSettings,Tabservice],
+    providers: [AuthGuard,LoginService,Headerservice,MenuService,HttpService,Userservice,TranslationService,AppSettings,Approvalservice,Tabservice],
     bootstrap: [AppComponent],
     schemas:   [CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA]
+    
 })
 export class AppModule {
 }

@@ -36,6 +36,19 @@ a:hover {
     color: #fff;
 }
 
+.rtl .block-menu{
+    clear: right;
+    padding-right: 205px;
+}
+
+.rtl .submenu{padding-right: 65px;}
+
+
+.rtl .navbar-nav{margin-right: 36%;}
+
+.rtl .main-container-collapse{
+    z-index:1000 !important;}
+
 #snackbar {
     visibility: hidden;
     min-width: 250px;

@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule} from '@angular/router';
 import { Employeecomponent } from './employee-list/employee.component';
 import { EmployeeDetail } from './employee-detail/employee-detail.component';
- 
+
 const routes: Routes = [
     { path: '', component:Employeecomponent },
-    { path: 'employee-detail/:id/:name', component:EmployeeDetail } 
+    { path: 'detail/:id', component:EmployeeDetail } 
 ];
 
 @NgModule({

@@ -3,19 +3,32 @@ import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslationService } from '../../../shared/translation/translation.service';
 import { Headerservice } from './header.service';
+import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
+import { CompleterService, CompleterData } from 'ng2-completer';
+import { FormGroup, FormControl, FormBuilder, ReactiveFormsModule,FormArray, Validators } from '@angular/forms';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/Rx';
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss']
+    styleUrls: ['./header.component.scss'],
+    
 })
 export class HeaderComponent implements OnInit {
     currentlabelTranslation:any;
     labelTranslationItem:any;
     UserName = "";
+    public employees:Array<any>=[];
+    public userdata:Array<any>;
     public data:Array<any>;
-    constructor(
-        private translate: TranslateService, public router: Router, public translation: TranslationService,public headerService:Headerservice) {
-        this.router.events.subscribe((val) => {
+    protected searchStr: string;
+     protected selectedColor: string;
+     public dataService: CompleterData;
+      public CompleterItem:any;
+    
+    constructor(public completerService: CompleterService,
+        private translate: TranslateService, public router: Router,public translation: TranslationService,public headerService:Headerservice,private builder: FormBuilder, private _sanitizer: DomSanitizer) {
+            this.router.events.subscribe((val) => {
             if (val instanceof NavigationEnd && window.innerWidth <= 992) {
                 this.toggleSidebar();
             }
@@ -34,8 +47,17 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit() { 
+       
         this. UserNotification();
     }
+ 
+
+  onSubmit(value:any){
+    console.log(value);
+  }
+
+
+
     toggleSidebar2(event: any) {
          const dom: any = document.querySelector('.main-container');
          dom.classList.toggle('main-container-collapse');
@@ -91,6 +113,7 @@ export class HeaderComponent implements OnInit {
     return   this.labelTranslationItem[0].txt
 }
 
+ 
 
 
     changeLang(language: string) {
@@ -116,4 +139,26 @@ export class HeaderComponent implements OnInit {
             dom.classList.remove('rtl');
         }
     }
+    protected onSelected(item) {
+      debugger;
+     var employeeName= item.originalObject.fullName;
+     var employeeId=item.originalObject.id;
+     this.router.navigate(['/employeelist/detail', employeeId]);
+     
+  }
+    public Searchfunction(Searchdata)
+     { 
+        
+        this.headerService.searchFunction(Searchdata).subscribe((res) => {
+          this.userdata = res.result.employees;
+          console.log(this.userdata);
+            //   for (var i = 0; i < this.userdata.length; i++) {
+            //     this.employees.push(this.userdata[i].fullName);   
+            //    }
+            //   this.searchData=this.employees.join(','); 
+          }) 
+         this.dataService =this.completerService.local(this.userdata,'fullName','fullName');
+        
+     }
+    
 }
