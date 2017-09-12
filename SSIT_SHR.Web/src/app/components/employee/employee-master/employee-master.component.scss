@@ -1,0 +1,22 @@
+label {
+    font-size: 0.8rem;
+}
+
+.form-control {
+    border-radius: 0px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: calc(1.8rem + 0.2px);
+}
+
+.text-font-1 {
+    font-size: 0.8rem;
+}
+
+.headerText {
+    padding-left: 5px;
+    padding-right: 5px;
+}

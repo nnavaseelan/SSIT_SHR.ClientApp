@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
-.rtl .textcom{
-            margin-left: 10px;
-    }
+
 
 .table-hover tbody tr:hover {
     background-color: #def3ff !important;
@@ -41,55 +39,26 @@ thead {
 a{
     text-decoration: none;
 }
-// .butttttn{
-//     background: #5cb85c;
-//     color:#fff;
-//     border-color: #5cb85c;
-//     margin-bottom: 10px;
-// }
-// .butttttn:hover{
-//     color: #fff;
-//     background-color: #449d44;
-//     background-image: none;
-//     border-color: #419641;
-// }
-// .butttttn:active{
-//     color: #fff;
-//     background-color: #449d44;
-//     background-image: none;
-//     border-color: #419641;
-// }
+.butttttn{
+    background: #5cb85c;
+    color:#fff;
+    border-color: #5cb85c;
+    margin-bottom: 10px;
+}
+.butttttn:hover{
+    color: #fff;
+    background-color: #449d44;
+    background-image: none;
+    border-color: #419641;
+}
+.butttttn:active{
+    color: #fff;
+    background-color: #449d44;
+    background-image: none;
+    border-color: #419641;
+}
 
-.line {
-        border-top: 2px black solid;
-        margin-top: 15px;
-        margin-bottom: 28px;
-    }
-     .searchForm{
-        padding-top: 15px;
-        margin-bottom: 15px;
-        border-bottom: 2px solid #000;
-    }
-     .searchForm .form-group{
-        margin-bottom: 15px;
-    }
-     .searchHide {
-        display: block;
-    }
-    .contenttext{
-        justify-content: left !important;
-    }
-    .textcom{
-            margin-left: 10px;
-    }
-     .butttttn{
-                 margin-bottom: 18px;
-                 margin-left: 8px;
-    }
-    .bttnicon{
-            margin-right: 3px;
 
-    }
 // <-----main bootstrap css----->
 
 

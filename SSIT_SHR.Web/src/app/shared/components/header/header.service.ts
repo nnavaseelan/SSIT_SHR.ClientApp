@@ -33,25 +33,4 @@ export class Headerservice{
         }
       );
   }
-    public searchFunction(Searchdata)
-    {
-      this.userData = localStorage.getItem("currentUser");
-       this.currentUser = JSON.parse(this.userData);
-       let body=JSON.stringify( {"userID": this.currentUser.UserID,"search":Searchdata});
-       return  this.http.post(AppSettings.API_ENDPOINT+"/api/Employees/EmployeeQuickSearch",body)
-
-      .map(res => {
-          if(res.status == 200)
-            {
-              return res.json();
-            }
-          },
-        error => {
-          if(error.status == 0)
-            {
-               return error.json();
-            }
-        }
-      );
-    }
 }

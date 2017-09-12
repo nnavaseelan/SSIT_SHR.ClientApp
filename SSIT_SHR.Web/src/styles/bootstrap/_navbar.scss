@@ -265,38 +265,4 @@
   .navbar-text {
     color: $navbar-inverse-color;
   }
-  .search-query {
-    background-color: #222;
-    display: block;
-    width: 100%;
-    padding: 0.5rem 0.75rem;
-    font-size: 1rem;
-    line-height: 1.25;
-    color: #fff;
-    background-image: none;
-    background-clip: padding-box;
-    border: 0px solid #292b2c;
-    border-radius: 0.25rem !important;
-    outline: #292b2c;
-    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-   border-top-right-radius:10px;
-}
-  .search-query:hover{
-     transition: all .3s;
-      border: 0px solid #333;
-     border-radius: 0.25rem;
-    
-     color:#fff;
-    
-  }
-    .search-query:focus{
-     border: 0px solid #333;
-     color:#fff;
-    }
-  .glyphicon-search::after {
-  content: "\e003";
-  position: relative;
-  color: white;
-}
-
 }

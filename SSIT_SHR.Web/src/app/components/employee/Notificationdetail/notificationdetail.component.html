@@ -2,11 +2,11 @@
 <!-- <div _ngcontent-c4="" class="card-header">Notifications </div> -->
 <!-- <h2 _ngcontent-c11="" class="page-header heading"><label>{{getTranslationItem('lbl_Notificatoins')}}</label></h2> -->
 <div class="card-block">
-    <div class="list-group"  >
-         <a  class="list-group-item clearfix d-block notificolor" [ngStyle]="{'color': item.notificationTypeColor}" *ngFor='let item of storedNames' >
-             <i class="fa fa-comment fa-fw" ></i> 
+    <div class="list-group" >
+         <a  class="list-group-item clearfix d-block notificolor" *ngFor='let item of storedNames' >
+             <i class="fa fa-comment fa-fw"></i> 
              {{item.fullName}}
-            <span class="float-right text-muted small"  >{{item.insertDate}}</span>
+            <span class="float-right text-muted small">{{item.insertDate}}</span>
         </a>
         
         <!-- <a href="#" class="list-group-item clearfix d-block">

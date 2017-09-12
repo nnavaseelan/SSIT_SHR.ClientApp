@@ -73,8 +73,6 @@ $topnav-background-color: #222;
     width: 40%;
 }
 }
-
-
-::host(.searchbttn){
-      background-color: #3b3838 !important;
+.header .navbar {
+    background: $topnav-background-color !important;
 }

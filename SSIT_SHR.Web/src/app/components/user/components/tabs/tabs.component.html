@@ -460,7 +460,6 @@
     </div>
 </div> -->
 <!--  -->
- <div id="snackbar">{{message}}</div>
 <div class="fb-profile-block">
     <div class="fb-profile-block-thumb" style="background-color: gainsboro;"><img alt="" title=""></div>
     <div class="profile-img"><a href="javascript:void(0)"><img src="http://themeboxer.com/demo/snipp/profile.jpg" alt="" title=""></a></div>
@@ -673,7 +672,7 @@
                                     <input type="checkbox" [checked]="item.hasItem==1" (change)="Transactiondata(item.transactionCode, $event.target.checked)"  [disabled]="values" [value]="item" >
                                         <span class="cr"></span>
                                    <!-- {{item.transactionCode}} -->
-                                 {{item.transactionCode}}:{{getTranslationItem2(item.transactionCode)}}
+                                    {{getTranslationItem2(item.transactionCode)}}
                                     </label>
                                     <div class="row fieldWidth">
                                       <div class="col-xs-12">
@@ -720,12 +719,9 @@
                                          &nbsp;
                                       </div>
                                          </div>
-                                    
                                       <!-- <button type="submit"  [disabled]="values" (click)="usergroupupdate()" class="btn btn-primary pull-right">Save</button>   -->
                                  </div>
-                                  
                         </ng-template>
-                                  
                     </ngb-tab>
                     <!-- <ngb-tab title="residentialDocument">
                         <ng-template ngbTabContent>
@@ -738,7 +734,7 @@
                     </ngb-tab> -->
                 </ngb-tabset>
             </ul>
-        
+            <div id="snackbar">{{message}}</div>
         </div>
     </div>
 </div>

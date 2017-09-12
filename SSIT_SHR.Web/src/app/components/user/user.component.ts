@@ -13,7 +13,6 @@ import { routerTransition } from '../../router.animations';
 export class Usercomponent {
   public Username:"";
   public Fullname:"";
-  public show:boolean=false;
   public Email:"";
   public userdata: Array<any>;
   public rows: Array<any> = [];
@@ -48,26 +47,14 @@ export class Usercomponent {
   public data: Array<any> =this.data;
   edited:boolean;
 
-constructor(public userservice:Userservice, public router:Router){}
-   
-  ngOnInit(){
+constructor(public userservice:Userservice, public router:Router)
+{
+  // this.length = this.data.length;
+}
 
+    ngOnInit(){
+     this.userlist();   
     }
-
- public toggleSearch(event: any) {
-        console.log("aaayaya",event.srcElement.className);
-        const fas: any = document.querySelector('.searchPlus');
-         const dom: any = document.querySelector('.line');  
-          if (dom.style.display === 'none') {
-                dom.style.display = 'block';
-                fas.classList.remove('fa-plus'); 
-                fas.classList.toggle('fa-minus'); 
-           } else {
-                dom.style.display = 'none';
-                fas.classList.remove('fa-minus'); 
-                fas.classList.toggle('fa-plus'); 
-          }
-    }       
     public userlist(){
         this.userservice.Userlist(this.Username,this.Fullname,this.Email).subscribe((res) => {
         this.data=(res.result);
@@ -76,29 +63,33 @@ constructor(public userservice:Userservice, public router:Router){}
           this.totalPage = this.length/this.itemsPerPage;
           this.totalPage= Math.ceil(this.totalPage);
          this.onChangeTable(this.config);
-         this.show=true;
      })
   }
    getTranslationItem(item: string) {
+
           let Menutranslationfile = localStorage.getItem("currentUser.translationfile");
                if(Menutranslationfile!=null)
                {
                this.currentlabelTranslation = JSON.parse(Menutranslationfile);
                this.labelTranslationItem=this.currentlabelTranslation.result[0].rSreturnJSONFile.tc[1].values;
-                }    
-           if (!item) {
-                 return "No Trans";
-                 }
-           if(!this.labelTranslationItem)
-            {
-              return "No Trans";
-            }
-         this.labelTranslationItem = this.labelTranslationItem.filter((fitem) => fitem.lbl.toLowerCase().indexOf(item.toLowerCase())>-1);
-          if (!this.labelTranslationItem[0]) {
-                return "No Trans";
                 }
-           return   this.labelTranslationItem[0].txt
+              
+    if (!item) {
+        return "No Trans";
+    }
+    if(!this.labelTranslationItem)
+        {
+              return "No Trans";
+        }
+     this.labelTranslationItem = this.labelTranslationItem.filter((fitem) => fitem.lbl.toLowerCase().indexOf(item.toLowerCase())>-1);
+     if (!this.labelTranslationItem[0]) {
+        return "No Trans";
+    }
+    return   this.labelTranslationItem[0].txt
 }
+
+
+
 
    public changePage(page: any, data: Array<any> = this.data): Array<any> {
     let start = (page.page - 1) * page.itemsPerPage;
@@ -112,6 +103,7 @@ constructor(public userservice:Userservice, public router:Router){}
     if (!config.sorting) {
       return data;
     }
+
     let columns = this.config.sorting.columns || [];
     let columnName: string = void 0;
     let sort: string = void 0;
@@ -199,6 +191,7 @@ public changeFilter(data: any, config: any): any {
       : sortedData;
     this.length = sortedData.length;
   }
+
   public onCellClick(userdedaildata: any): any {
     this.router.navigate(['./userview']);
     localStorage.setItem("userdetailId",userdedaildata.row.userID);
@@ -207,4 +200,5 @@ public changeFilter(data: any, config: any): any {
   public  Redirect(){
       this.router.navigate(['./adduser']);
       }
+ 
 }

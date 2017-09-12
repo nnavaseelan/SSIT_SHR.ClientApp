@@ -11,7 +11,6 @@ import {Observable} from 'rxjs/Rx';
 })
 export class TabsComponent implements OnInit {
   public tabflag:1;
-  edited:boolean;
   public data: any;
   public message:any;
   username:any;
@@ -54,7 +53,7 @@ export class TabsComponent implements OnInit {
           })       
      }
      getTranslationItem(item: string) {
-         
+         debugger;
           let Menutranslationfile = localStorage.getItem("currentUser.translationfile");
                if(Menutranslationfile!=null)
                {
@@ -99,7 +98,7 @@ export class TabsComponent implements OnInit {
                  return   this.labelTranslationItem[0].txt
           }
                 
-  getTranslationItem2(item: string) {
+getTranslationItem2(item: string) {
 
           let Menutranslationfile = localStorage.getItem("currentUser.translationfile");
                if(Menutranslationfile!=null)
@@ -127,7 +126,7 @@ export class TabsComponent implements OnInit {
         {
       if(this.tabflag==1)
         {
-         
+
         }
       else if (this.tabflag==2)
         {
@@ -141,8 +140,8 @@ export class TabsComponent implements OnInit {
             this.usergroupupdate();
             }
         else{
-             this.UserDetail();
-           }
+
+        }
         }
        }
    public Transactiondata(transactionid:number,isChecked:boolean){
@@ -220,14 +219,12 @@ export class TabsComponent implements OnInit {
                 }
           }  
           console.log(this.selectedata);
-          this.tabservice.updatemoduledata(this.selectedata).map(res=>res)
+          this.tabservice.updatemoduledata(this.selectedata).map(res => res)
             .subscribe(res => {
-               console.log(res);  
-            console.log("Res >>>>>", res);
-               
+                console.log("Res >>>>>", res);
+                
                 this.notificationMessage();
                 this.message = "Data Saved Sucessfully!!"
-          
             }, err => {
                 console.log('eerrr comp', err)
                 if (err.code === 401) {
@@ -235,7 +232,6 @@ export class TabsComponent implements OnInit {
                     this.message = "Data Not Saved !!"
                     console.log("err", err);
                 }
-               
             });
       }
         public usertransactionupdate(){
@@ -249,13 +245,12 @@ export class TabsComponent implements OnInit {
                 }
           }  
           console.log(this.transactiondata);
-          this.tabservice.updatetransactiondata(this.transactiondata).map(res=>res)
+          this.tabservice.updatetransactiondata(this.transactiondata).map(res => res)
             .subscribe(res => {
-           console.log("Res >>>>>", res);
-              
+                console.log("Res >>>>>", res);
+                
                 this.notificationMessage();
                 this.message = "Data Saved Sucessfully!!"
-          
             }, err => {
                 console.log('eerrr comp', err)
                 if (err.code === 401) {
@@ -278,18 +273,14 @@ export class TabsComponent implements OnInit {
                 }
           }  
           console.log(this.userGroupdata);
-          this.tabservice.updategroupdata(this.userGroupdata).map(res=>res)
-             .subscribe(res => {
-               console.log(res); 
-                  console.log("Res >>>>>", res);
-               
+          this.tabservice.updategroupdata(this.userGroupdata).map(res => res)
+            .subscribe(res => {
+                console.log("Res >>>>>", res);
+                
                 this.notificationMessage();
                 this.message = "Data Saved Sucessfully!!"
-         
-         
             }, err => {
-              
-                 console.log('eerrr comp', err)
+                console.log('eerrr comp', err)
                 if (err.code === 401) {
                     this.notificationMessage();
                     this.message = "Data Not Saved !!"
@@ -299,46 +290,17 @@ export class TabsComponent implements OnInit {
 
 
      }
-    public fetchNews(data){
+         fetchNews(data){
              debugger;
              this.tabflag = data;
           
-      }
-    // public notificationMessage() {
-    //     var x = document.getElementById("snackbar");
-    //     x.className = "show";
-    //     setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
-    // }
+        }
       notificationMessage() {
         var x = document.getElementById("snackbar");
         x.className = "show";
         setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
     }
-     
-    public UserDetail()
-    {
-     var userMaster = {
-        "fullName": this.fullName,
-        "userName":this.username,
-        "email":this.email
-       };
-        debugger;
-      this.tabservice.userdetail(userMaster).map(res=>res)
-       .subscribe(res => {
-            console.log(res);  
-           console.log("Res >>>>>", res);
-                this.notificationMessage();
-                this.message = "Data Saved Sucessfully!!"
-            }, err => {
-               
-                console.log('eerrr comp', err)
-                if (err.code === 401) {
-                    this.notificationMessage();
-                    this.message = "Data Not Saved !!"
-                    console.log("err", err);
-                }
-            });
-    }
+
        
   }
  

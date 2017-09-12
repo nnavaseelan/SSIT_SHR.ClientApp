@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
+
 @Component({
     selector: 'app-notificationdetail',
     templateUrl: './notificationdetail.component.html',

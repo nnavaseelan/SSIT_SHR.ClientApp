@@ -20,7 +20,6 @@ const routes: Routes = [
             {path:'userview',loadChildren:'../components/user/userview.module#UserViewModule'},
             {path:'employeelist',loadChildren:'../components/employee/employee.module#EmployeeModule'},
             {path:'notificationdetail',loadChildren:'../components/employee/Notificationdetail/notificationdetail.module#NotificationdetailModule'},
-            {path:'myapproval',loadChildren:'../components/approval/approval.module#ApprovalModule'}
         ]
     }
 ];

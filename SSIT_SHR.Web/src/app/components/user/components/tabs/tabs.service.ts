@@ -87,7 +87,7 @@ export class Tabservice{
       );
      }
      public updategroupdata(groupIDs)
-      {
+    {
       debugger;
        this.userData = localStorage.getItem("currentUser");
        this.currentUser = JSON.parse(this.userData);
@@ -110,28 +110,5 @@ export class Tabservice{
         }
       );
      }
-    public userdetail(data)
-    {
-       this.userData = localStorage.getItem("currentUser");
-       this.currentUser = JSON.parse(this.userData);
-       this.userdetailid = localStorage.getItem("userdetailId");
-       let body=JSON.stringify( {"userID": this.currentUser.UserID,"userIDToInsert":this.userdetailid,"userGroupIDs": this.SelectGroupIds});
-            return this.http.post(AppSettings.API_ENDPOINT+"/api/Users/UpdateUserGroup",body)
-        //   return this.http.get("assets/data/UserProfile.json")
-         .map(res => {
-          if(res.status == 200)
-            {
-              return res.json();
-            }
-          },
-        error => {
-          if(error.status == 0)
-            {
-               return error.json();
-            }
-        }
-      );
-
-    }
 
 }

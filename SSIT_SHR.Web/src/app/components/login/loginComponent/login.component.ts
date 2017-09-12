@@ -34,6 +34,8 @@ edited:boolean;
         $ev.preventDefault();
         this.onLoggedin();
     //    var isUserValidated =this.loginService.UserLogin(this.model.ClientCode,this.model.UserName,this.model.password);
+       
+      
         for (let c in this.valForm.controls) {
             this.valForm.controls[c].markAsTouched();
         }
@@ -44,35 +46,48 @@ edited:boolean;
     }
 
     ngOnInit() {
-         // reset login status
+        
+          // reset login status
         // this.authenticationService.logout();
-       // get return url from route parameters or default to '/'
+
+        // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
     onLoggedin() {
+      
+     
         let commentOperation:Observable<Comment[]>;
-        this.loginService.UserLogin(this.model.ClientCode,this.model.UserName,this.model.password)
+          this.loginService.UserLogin(this.model.ClientCode,this.model.UserName,this.model.password)
           .subscribe( 
                response => {
           console.log(response);
-              //localStorage.setItem('access_token', response.json().access_token); 
+              //localStorage.setItem('access_token', response.json().access_token);
+            
          this.menu.LoadMenu()
         .subscribe(response => {
+      
            localStorage.setItem('currentUser.currentmenu',JSON.stringify(response.result));
+           
           this.translation.UserTranslation()
                .subscribe(res => {
+    
                    localStorage.setItem('currentUser.translationfile',JSON.stringify(res));
                    this.router.navigate(['dashboard']);
               });
         });
-       // return response.json();    
+            
+            
+             // return response.json();
+           
         },
         error => {
            this.edited = true;
               //  alert(error.error_description);
             //this.info="danger";
             //this.alertmsg="Invalid Credentials!";
+          
+      
         });
 
     }
