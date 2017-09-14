@@ -264,7 +264,7 @@
                                             <div class="col-md-4 col-sm-4 col-xs-12">
                                                 <label><b>EmployeeStatusID:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
-                                                <select [disabled]="values" name="id" [(ngModel)]="employeeMaster.id"> 
+                                                <select [disabled]="values" name="id" [(ngModel)]="employeeMaster.id">
                                                 <option value="{{employeeMaster.id}}">{{employeeMaster.id}}
                                                 </option>
                                                 </select>
@@ -322,9 +322,8 @@
                                                 <label><b>ReligionID:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <!-- <input type="text" [disabled]="values" value="{{religionID}}"> -->
-                                                <select name="religionID" [disabled]="values" [(ngModel)]="employeeMaster.religionID">
-                                                <option value="{{employeeMaster.religionID}}">{{employeeMaster.religionID}}
-                                                </option>
+                                                <select name="religionID" [disabled]="values" > <!--[(ngModel)]="employeeMaster.religionID"-->
+                                                    <option *ngFor="let rl of religion" [ngValue]="rl.lbl" [selected]="employeeMaster.religionID == rl.lbl">{{rl.txt}}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -344,9 +343,8 @@
                                                 <label><b>MaritalStatusID:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <!--<input type="text" [disabled]="values" value="{{maritalStatusID}}"> -->
-                                                <select name="maritalStatusID" [disabled]="values" [(ngModel)]="employeeMaster.maritalStatusID">
-                                                <option>{{employeeMaster.maritalStatusID}}
-                                                </option>
+                                                <select name="maritalStatusID" [disabled]="values" > <!--[(ngModel)]="employeeMaster.maritalStatusID"-->
+                                                    <option *ngFor="let md of married" [ngValue]="md.lbl" [selected]="employeeMaster.religionID == md.lbl">{{md.txt}}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -357,22 +355,26 @@
                                                 <label><b>NationalityID:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <!--  <input type="text" [disabled]="values" value="{{nationalityID}}"> -->
-                                                <select [disabled]="values" [(ngModel)]="employeeMaster.nationalityID" name="nationalityID">
-                                                <option value="{{employeeMaster.nationalityID}}">{{employeeMaster.nationalityID}}
-                                                </option>
+                                                <select [disabled]="values"  name="nationalityID"> <!--[(ngModel)]="employeeMaster.nationalityID"-->
+                                                    <option *ngFor="let nt of country" [ngValue]="nt.lbl" [selected]="employeeMaster.nationalityID == ntlbl">{{nt.txt}}</option>
+
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="row">
                                             <div class="col-md-4 col-sm-4 col-xs-12">
                                                 <label><b>BloodTypeID:</b></label></div>
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <!-- <input type="text" [disabled]="values" value="{{bloodTypeID}}"> -->
-                                                <select [disabled]="values" [(ngModel)]="employeeMaster.bloodTypeID" name="bloodTypeID">
-                                                <option value="{{employeeMaster.bloodTypeID}}">{{employeeMaster.bloodTypeID}}
-                                                </option>
+                                                <select [disabled]="values" name="bloodTypeID"> <!-- [(ngModel)]="employeeMaster.bloodTypeID"-->
+                                                <!--<option value="{{employeeMaster.bloodTypeID}}">{{employeeMaster.bloodTypeID}}-->
+                                                <!--</option>-->
+
+                                                        <option *ngFor="let bty of bloodType" [ngValue]="bty.lbl" [selected]="employeeMaster.bloodTypeID == bty.lbl">{{bty.txt}}</option>
+
                                                 </select>
                                             </div>
                                         </div>
@@ -447,8 +449,8 @@
                                             <div class="col-md-8 col-sm-8 col-xs-12">
                                                 <!-- <input type="text" [disabled]="values" value="{{countryID}}"> -->
                                                 <select [disabled]="values">
-                                                <option value="{{employeeMaster.countryID}}" name="countryID" >{{employeeMaster.countryID}}
-                                                </option>
+
+                                                    <option *ngFor="let cy of country" [ngValue]="cy.lbl" [selected]="employeeMaster.countryID == cy.lbl">{{cy.txt}}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -491,7 +493,7 @@
                                              <button class="btn btn-primary pull-right" (click)="showHide = !showHide">Back</button>
                                          </div>
                                     </div>
-                                
+
                                 <form name="payRollTabForm" #payRollTabForm="ngForm">
                                     <div class="payrollbox">
                                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -548,9 +550,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
-                                
+
                                     <table class="table table-striped" [mfData]="payRollArray" #mf="mfDataTable" [mfRowsOnPage]="5">
                                     <thead>
                                         <tr>
