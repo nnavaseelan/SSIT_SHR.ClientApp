@@ -2,125 +2,62 @@
 
 </div>
 
+
 <div class="employee-list">
-<div style="margin-bottom: 21px;"><i class="fa fa-plus searchPlus" aria-hidden="true" (click)="toggleSearch($event)"></i>&nbsp; Search</div>
-<div class="card line searchHide">
-     <div class="card-block ">
-        <div class="row">
-            <div class="col-md-12 row">
-                <div class="col-md-6 row form-group">
-                    <label class="col-md-3">Given Name</label>
-                    <input type="text" class="col-md-8 form-control" id="email" [(ngModel)]="employee.GivenName" name="GivenName" placeholder="Given Name" >
-                </div>
-                <div class="col-md-6 row  form-group">
-                    <label class="col-md-3">SurName</label>
-                    <!-- <input class="col-md-8 form-control" placeholder="Last Name "> -->
-                    <input type="text" class="col-md-8 form-control" id="pwd" [(ngModel)]="employee.SurName" name="SurName" placeholder="SurName">
-                </div>
-            </div>
-
-            <div class="col-md-12 row">
-                <div class="col-md-6 row form-group">
-                    <label class="col-md-3">Name</label>
-                    <input class="col-md-8 form-control" placeholder="Name">
-                </div>
-                <div class="col-md-6 row  form-group">
-                    <label class="col-md-3">Residency</label>
-                    <input class="col-md-8 form-control" placeholder="Residency">
-                    <!-- <input class="col-md-7 form-control" placeholder=" /  / ">
-                    <div class="col-md-1"><span class="fa fa-calendar "></span></div> -->
-                </div>
-            </div>
-            <div class="col-md-12 row">
-                <div class="col-md-6 row form-group">
-                    <label class="col-md-3">Id</label>
-                    <input class="col-md-8 form-control" placeholder="Id">
-                </div>
-                <div class="col-md-6 row  form-group">
-                    <label class="col-md-3">Passport</label>
-                    <input class="col-md-8 form-control" placeholder="passport">
-                    <!-- <input class="col-md-7 form-control" placeholder=" /  / ">
-                    <div class="col-md-1"><span class="fa fa-calendar "></span></div> -->
-                </div>
-            </div>
-            <div class="col-md-12 row">
-                <button class="btn btn-primary" (click)="employeeListingData()">Search</button>
-            </div>
-          
-        </div>
-    </div>
-    <!-- carblock end  -->
-</div>
-<!-- care end   -->
-
-    <!-- <div style="margin-bottom: 21px;"><i class="fa fa-plus searchPlus" aria-hidden="true" (click)="toggleSearch($event)"></i>&nbsp; Search</div>
-    <div class="line searchHide">
-        <div class="form-inline searchForm">
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="form-group">
-                    <label for="email" class="col-sm-5 control-label"><b>Given Name:</b></label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="email" [(ngModel)]="employee.GivenName" name="GivenName" >
+  
+    <div style="margin-bottom: 21px;"><i class="fa fa-plus searchPlus" aria-hidden="true" (click)="toggleSearch($event)"></i>&nbsp; Search</div>
+    <div class="card line searchHide">
+         <div class="card-block ">
+            <div class="row">
+                <div class="col-md-12 row">
+                    <div class="col-md-6 row form-group">
+                        <label class="col-md-3">Given Name</label>
+                        <input type="text" class="col-md-8 form-control" id="email" [(ngModel)]="employee.GivenName" name="GivenName" placeholder="Given Name" >
+                    </div>
+                    <div class="col-md-6 row  form-group">
+                        <label class="col-md-3">SurName</label>
+                        <!-- <input class="col-md-8 form-control" placeholder="Last Name "> -->
+                        <input type="text" class="col-md-8 form-control" id="pwd" [(ngModel)]="employee.SurName" name="SurName" placeholder="SurName">
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="form-group">
-                    <label for="pwd" class="col-sm-5 control-label"><b>SurName:</b></label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="pwd" [(ngModel)]="employee.SurName" name="SurName">
+    
+                <div class="col-md-12 row">
+                    <div class="col-md-6 row form-group">
+                        <label class="col-md-3">Name</label>
+                        <input class="col-md-8 form-control" placeholder="Name">
+                    </div>
+                    <div class="col-md-6 row  form-group">
+                        <label class="col-md-3">Residency</label>
+                        <input class="col-md-8 form-control" placeholder="Residency">
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="form-group">
-                    <label for="pwd" class="col-sm-5 control-label"><b>Residency:</b></label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="pwd">
+                <div class="col-md-12 row">
+                    <div class="col-md-6 row form-group">
+                        <label class="col-md-3">Id</label>
+                        <input class="col-md-8 form-control" placeholder="Id">
+                    </div>
+                    <div class="col-md-6 row  form-group">
+                        <label class="col-md-3">Passport</label>
+                        <input class="col-md-8 form-control" placeholder="passport">                        
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="form-group">
-                    <label for="email" class="col-sm-5 control-label"><b>Name:</b></label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="email">
-                    </div>
+                <div class="col-md-12 row">
+                    <button class="btn btn-primary" (click)="employeeListingData()">Search</button>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="form-group">
-                    <label for="pwd" class="col-sm-5 control-label"><b>Id:</b></label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="pwd">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="form-group">
-                    <label for="pwd" class="col-sm-5 control-label"><b>Passport:</b></label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="pwd">
-                    </div>
-                </div>
-            </div>
-
-        <div class="col-md-12 col-xs-12 col-xs-12 ">
-            <div class="form-group ">
-                <button class="pull-right btn btn-primary" (click)="employeeListingData()">Search</button>
+              
             </div>
         </div>
+        <!-- carblock end  -->
     </div>
-    </div> -->
-
+    <!-- care end   -->
 
     <div *ngIf="loader" class="loader" style="display: block; margin: 5% auto;"></div>
     <div class="row">
-        <div class="col-md-4  col-lg-4 lib-item" data-category="ui" *ngFor="let employee of finalData"  (click)="employeeDetail(employee)">
+        <div class="col-md-4  col-lg-4 lib-item" data-category="ui" *ngFor="let employee of finalData" style="padding-left:10px;padding-right:10px;" (click)="employeeDetail(employee)">
             <div class="lib-panel">
                 <div class="row box-shadow">
-                    <div class="col-md-3">
-                        <img class="lib-img" src="./assets/images/avatar-male.jpg">
+                    <div class="col-md-3" style="text-align:center;">
+                        <img class="lib-img center-block" src="../assets/images/avatar-male.jpg">
                     </div>
                     <div class="col-md-9">
                         <div class="lib-row lib-header">

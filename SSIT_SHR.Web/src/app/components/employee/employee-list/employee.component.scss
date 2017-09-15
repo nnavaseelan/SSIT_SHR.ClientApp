@@ -78,11 +78,11 @@
 }
 
 .details p {
-    margin-bottom: 0px;
+    margin-bottom: 0px !important;
 }
 
 .details2 p {
-    margin-bottom: 0px;
+    margin-bottom: 0px !important;
 }
 
 .details2 {
@@ -197,6 +197,8 @@
 }
 .lib-panel img {
     width: 100%;
+    max-width: 100px;
+
     background-color: transparent;
 }
 
@@ -221,7 +223,7 @@
     height: 2px;
     width: 26px;
     background-color: #d9d9d9;
-    margin: 7px 0 7px 0;
+    margin: 5px 0 5px 0;
 }
 
 .lib-panel .lib-row.lib-desc {
@@ -253,9 +255,18 @@
 .lib-img
 {
     border-radius: 100%;
-    margin: 7px 0 7px 0;
+   // margin: 7px 0 7px 0;
+    margin: auto;
+   margin-top: 7px;
+   margin-bottom: 7px;
+   
+    padding: 0px;
 }
-.lib-item{
-    padding-left:10px;
-    padding-right:10px;
+
+.lib-desc p {
+    margin-bottom:0.4em !important;
+}
+
+.lib-header {
+    margin-bottom: 0px;
 }

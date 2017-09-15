@@ -62,7 +62,7 @@ export class EmployeeDetail {
 
     ngAfterViewInit() {
         // console.log("tabbingData", this.tabbingData);
-        this.render2.addClass(document.querySelector(".tab-content"), "tabing");
+       // this.render2.addClass(document.querySelector(".tab-content"), "tabing");
         // console.log('tab Data', document.querySelector(".tab-content"))
     }
 

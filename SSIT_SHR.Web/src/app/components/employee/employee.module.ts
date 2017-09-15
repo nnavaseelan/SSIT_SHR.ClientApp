@@ -10,6 +10,7 @@ import { DataTableModule} from "angular2-datatable";
 import { EmployeeAddComponent } from './employee-add/employee-add.component';
 import { EmpWizardComponent } from './emp-wizard/emp-wizard.component';
 import { EmployeeMasterComponent } from './employee-master/employee-master.component';
+import { EmpTabsComponent } from './emp-tabs/emp-tabs.component';
 
 @NgModule({
     imports: [
@@ -25,7 +26,8 @@ import { EmployeeMasterComponent } from './employee-master/employee-master.compo
        EmployeeDetail,
        EmployeeAddComponent,
        EmpWizardComponent,
-       EmployeeMasterComponent
+       EmployeeMasterComponent,
+       EmpTabsComponent
     ],
     providers:[EmployeeService,NgbTabsetConfig]
 

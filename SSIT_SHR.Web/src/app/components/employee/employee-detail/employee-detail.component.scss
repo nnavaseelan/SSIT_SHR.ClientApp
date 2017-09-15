@@ -1,0 +1,45 @@
+select {
+    width: 100% !important;
+    
+}
+
+legend {
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 0px;
+    width: auto;
+}
+
+
+
+fieldset {
+    margin-top: 25px;
+    padding-left: 5px;
+    border: 1px solid #ccc;
+}
+
+label {
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+input,select {
+border: 1px solid #ccc;
+background-color: #fff !important;
+}
+
+.bottomHead {
+    margin-top: 0px;
+    
+
+}
+
+
+.buttonSet {
+    margin-top: 15px;
+}
+
+.form-control {padding-top: 0.2em; padding-bottom: 0.2em}
+
+.form-group {padding: 0px 30px;}
+
